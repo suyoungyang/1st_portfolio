@@ -23,5 +23,7 @@ public interface BoardService {
 	public List<board> listAll() throws Exception;
 	//06.게시글 조회
 	public void increaseViewnum(int num,HttpSession session) throws Exception;
+	//07.mygallog 게시판리스트 출력
+	public List<board> myboard(String nick)throws Exception;
 	
 }

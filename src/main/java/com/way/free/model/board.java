@@ -1,5 +1,7 @@
 package com.way.free.model;
 
+import java.sql.Date;
+
 //VO(Value Object)
 public class board {
 	private Integer num;
@@ -8,7 +10,7 @@ public class board {
 	private String title;
 	private String nick;
 	private String password;
-	private String date;
+	private Date date;
 	private String content;
 	private Integer inqu;
 	private Integer reco;
@@ -17,6 +19,7 @@ public class board {
 	private Integer nonreco;
 	private Integer hitnum;
 	private Integer repnum;
+	
 	public Integer getNum() {
 		return num;
 	}
@@ -53,10 +56,10 @@ public class board {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public String getContent() {
@@ -107,14 +110,16 @@ public class board {
 	public void setRepnum(Integer repnum) {
 		this.repnum = repnum;
 	}
+	
 	@Override
 	public String toString() {
-		
 		return "board [num=" + num + ", canum=" + canum + ", type=" + type + ", title=" + title + ", nick=" + nick
 				+ ", password=" + password + ", date=" + date + ", content=" + content + ", inqu=" + inqu + ", reco="
 				+ reco + ", appro=" + appro + ", concept=" + concept + ", nonreco=" + nonreco + ", hitnum=" + hitnum
 				+ ", repnum=" + repnum + "]";
 	}
 	
-
+	
+	
+	
 }

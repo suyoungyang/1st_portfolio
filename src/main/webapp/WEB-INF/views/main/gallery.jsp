@@ -76,7 +76,7 @@
 	<div class="area_links"> 
 	  <ul> 
 		 <li><a href="#">m.갤러리</a></li>
-		 <li><a href="http://localhost:8090/free/board/MyGallog.do">갤로그</a></li>
+		 <li><a href="http://localhost:8090/free/board/myboard.do?nick=${nick }">갤로그</a></li>
 		 <li><a href="#">뉴스</a></li>
 		 <li><a href="#">만두몰</a></li>
 		 <li><a href="#">이벤트</a></li>
@@ -108,7 +108,7 @@
             <!-- //2차메뉴 -->
           </li>
           <li><a href="#" class="link_gnb">m.갤러리</a></li>
-          <li><a href="http://localhost:8090/free/board/MyGallog.do" class="link_gnb">갤로그</a></li>
+          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${nick }" class="link_gnb">갤로그</a></li>
           <li><a href="#" class="link_gnb">뉴스</a></li>
           <li><a href="#" class="link_gnb">이벤트</a></li>
           <li><a href="#" class="link_gnb">만두몰</a></li>
@@ -464,16 +464,18 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
     <div class="switch_btnbox">
   			&nbsp;
   			<%
-  			String id=(String)session.getAttribute("id");
-  			System.out.println("id>>"+id);
-  			if(id==null){
+  			session.setAttribute("nick","chang");
+  			session.setAttribute("password","123");
+  			String nick=(String)session.getAttribute("nick");
+  			System.out.println("nick>>"+nick);
+  			if(nick==null){
 	  			%>
 	  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboard.do"></a>
 	  			<%
   			}else{
-  			%>
-  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboardIn.do"></a>
-  			<%
+	  			%>
+	  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboardIn.do"></a>
+	  			<%
   			}
   			%>
 			<span class="blind">글쓰기</span>
@@ -488,8 +490,8 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 		  <caption>갤러리 리스트</caption>
 		  <colgroup>
 			<col style="width:6%">
-						<col>
-			<col style="width:18%">
+			<col style="width:30%">
+			<col style="width:11%">
 			<col style="width:6%">
 			<col style="width:6%">
 			<col style="width:6%">
@@ -507,12 +509,11 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 		  	<tbody>
 		<c:forEach var="row" items="${list}">
 			<tr class="ub-content us-post">
-				<td class="gall_num" >${row.num }</td>
-				<td class="gall_tit ub-word">	
-					<a href="#"><em class="icon_img icon_txt"></em>${row.title }</a></td>
+				<td class="gall_num" >${row.num}</td>
+				<td class="gall_tit ub-word">${row.title }</td>
 			  	<td class="gall_writer ub-writer">
 				<span class='nickname' title='ㅇㅇ'><em>${row.nick }</em></span></td>
-			  <td class="gall_date">${row.date}</td>
+			  <td class="gall_date" >${row.date}</td>
 			  <td class="gall_count">${row.inqu }</td>
 			  <td class="gall_recommend">${row.reco}</td>
 			</tr>
@@ -528,7 +529,17 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
         	<button type="button" class="list_bottom btn_white" onclick="listKindTab('recommend','list');return false;">개념글</button>	        	
         </div>
 	  	<div class="fr">
-	  		<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboard.do')">글쓰기</button>
+	  		<%
+	  		if(nick==null){
+	  			%>
+	  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboard.do')">글쓰기</button>
+	  			<%
+  			}else{
+  			%>
+  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboardIn.do')">글쓰기</button>
+  			<%
+  			}
+  			%>
 			</div>
 			  </div>
 	  	  <!-- 페이징 -->

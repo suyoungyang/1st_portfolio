@@ -550,7 +550,7 @@
 			<!-- 게시판 글쓰기 부분!!! -->
 			<article id="write_wrap" class="clear">
 				<h2 class="blind">갤러리 글쓰기 영역</h2>
-				<form method="GET" name="board" action="http://localhost:8090/free/board/insertboard.do">
+				<form method="POST" name="board" action="http://localhost:8090/free/board/insertboard.do">
 					<table>
 						<tr height="50px">
 							<td width="100px" align="left"
@@ -558,7 +558,7 @@
 								class="input_style" type="text" name="nick" id="nick" /></td>
 							<td width="100px" align="left"
 								style="font-size: 15px; color: grey;">비밀번호<input
-								class="input_style" type="text"name="password" id="nick" ></td>
+								class="input_style" type="text"name="password" id="password" ></td>
 						</tr>
 						<tr height="50px">
 							<td colspan="2" align="left"
@@ -582,13 +582,16 @@
 						<tr>
 							<td class="blind" colspan="2">
 								<input type="hidden" name="canum" value="1" />
-								<input type="hidden" name="type" value="일반" /> <input type="hidden" name="date" value="${now}" />
-								<input type="hidden" name="inqu" value="0" /> <input
-								type="hidden" name="reco" value="0" /> <input type="hidden"
-								name="appor" value="모바일" /> <input type="hidden" name="concept"
-								value="0" /> <input type="hidden" name="nonreco" value="0" />
-								<input type="hidden" name="hitnum" value="0" /> <input
-								type="hidden" name="repnum" value="0" />
+								<input type="hidden" name="type" value="일반" />
+								<input type="hidden" name="date" value="${now }"/>
+									<%System.out.println("now출력>>>>"+now); %>
+								<input type="hidden" name="inqu" value="0" />
+								<input type="hidden" name="reco" value="0"/>
+								<input type="hidden" name="appro" value="모바일" />
+								<input type="hidden" name="concept" value="0" />
+								<input type="hidden" name="nonreco" value="0" />
+								<input type="hidden" name="hitnum" value="0" /> 
+								<input type="hidden" name="repnum" value="0" />
 							</td>
 						</tr>
 						<tr>

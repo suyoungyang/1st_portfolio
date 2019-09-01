@@ -9,7 +9,7 @@ public class menu {
 	private String minorca;
 	private String man;
 	private String subman;
-	private Date cadate;
+	private String cadate;
 	public Integer getCanum() {
 		return canum;
 	}
@@ -40,10 +40,10 @@ public class menu {
 	public void setSubman(String subman) {
 		this.subman = subman;
 	}
-	public Date getCadate() {
+	public String getCadate() {
 		return cadate;
 	}
-	public void setCadate(Date cadate) {
+	public void setCadate(String cadate) {
 		this.cadate = cadate;
 	}
 	@Override

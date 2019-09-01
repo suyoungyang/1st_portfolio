@@ -2,7 +2,6 @@ package com.way.free.impl;
 
 import java.util.List;
 
-import javax.activation.CommandMap;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -21,13 +20,11 @@ public class BoardServiceImpl implements BoardService{
 	//01. 게시글쓰기
 	@Override
 	public void insertBoard(board board) throws Exception {
-		int num=board.getNum();
 		int canum=board.getCanum();
 		String type=board.getType();
 		String title=board.getTitle();
 		String nick=board.getNick();
 		String password=board.getPassword();
-		String date=board.getDate();
 		String content=board.getContent();
 		int inqu=board.getInqu();
 		int reco=board.getReco();
@@ -41,13 +38,11 @@ public class BoardServiceImpl implements BoardService{
 		content=content.replace("  ", "&nbsp;&nbsp;");
 		//*줄바꿈 문자처리
 		content=content.replace("\n", "<br>");
-		board.setNum(num);
 		board.setCanum(canum);
 		board.setType(type);
 		board.setTitle(title);
 		board.setNick(nick);
 		board.setPassword(password);
-		board.setDate(date);
 		board.setContent(content);
 		board.setInqu(inqu);
 		board.setReco(reco);
@@ -106,6 +101,14 @@ public class BoardServiceImpl implements BoardService{
 		}
 		
 	}
+	//07.mygallog 게시판리스트 출력
+	@Override
+	public List<board> myboard(String nick) throws Exception {
+		return boardDAO.myboard(nick);
+	}
+	
+	
+	
 	
 	
 }

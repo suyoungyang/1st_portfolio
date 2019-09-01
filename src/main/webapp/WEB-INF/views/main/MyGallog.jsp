@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,9 +26,9 @@
 </head>
 <body>
 <%
-	String id=(String)session.getAttribute("id");
-	System.out.println("id>>"+id);
-	if(id!=null){
+	String nick=(String)session.getAttribute("nick");
+	System.out.println("nick>>"+nick);
+	if(nick!=null){
 %>
 	<script type="text/javascript">
 	var img = new Image();
@@ -55,9 +56,7 @@
 				<li><a href="http://dcnewsj.joins.com">뉴스</a></li>
 				<li><a href="http://mall.dcinside.com">만두몰</a></li>
 				<li><a href="http://event.dcinside.com">이벤트</a></li>
-				
-								<li><a class="btn_top_loginout" href="https://dcid.dcinside.com/join/logout.php?s_url=https%3A%2F%2Fgallog.dcinside.com%2Fmoonreia">로그아웃</a></li>
-								
+				<li><a class="btn_top_loginout" href="https://dcid.dcinside.com/join/logout.php?s_url=https%3A%2F%2Fgallog.dcinside.com%2Fmoonreia">로그아웃</a></li>			
 			  </ul>
 			</div>
 		  </div>
@@ -65,7 +64,7 @@
 	    <div class="top_bar">
 	      <div id="test" class="bar clear" style="background:url() repeat 0 0">
 	        <div class="galler_info">
-	          <strong class="nick_name">${id }</strong> 님의 갤로그입니다.
+	          <strong class="nick_name">${nick }</strong> 님의 갤로그입니다.
 	        </div>
 	        <div class="tright_box clear">
 		        <div class="visitors_num rbox">
@@ -78,8 +77,7 @@
 	              </button>
 	              <div id="calendar_layer" class="inner" style="display:none"></div>
 	            </div>
-		        
-		        	            <div class="gallog_set_box rbox">  
+	            <div class="gallog_set_box rbox">  
 	              <button type="button" id="btn_gallog_conf" class=" btn_gallog_setting">
 	                <em class="sp_img icon_gallog_setting"></em><span class="txt">설정</span>
 	              </button>
@@ -290,13 +288,45 @@
 					<script>$('.gallog_menu .home').addClass('on');</script>
 				  <section>
 					<div id="jquery_jplayer"></div>
-
+		
 <div class="gallog_cont">
   <header>
 	<div class="cont_head clear">
-	  <h2 class="tit">내 게시글<span class="num">(0)</span></h2>
+	  <h2 class="tit">내 게시글</h2>
 	  <a href="/moonreia/posting" class="btn_blue smallest go">전체보기</a>
 	</div>
+	<!-- 게시판형 갤러리 리스트-->
+	    <table class="gall_list">
+		  <caption>갤러리 리스트</caption>
+		  <colgroup>
+			<col style="width:6%">
+			<col style="width:30%">
+			<col style="width:11%">
+			<col style="width:6%">
+			<col style="width:6%">
+		  </colgroup>
+		  <thead>
+			<tr>
+			  <th scope="col">번호</th>
+			  <th scope="col">제목</th>
+			  <th scope="col">작성일</th>
+			  <th scope="col">조회</th>
+			  <th scope="col">추천</th>
+			</tr>
+		  </thead>
+		  	<tbody>
+		 
+		<c:forEach var="row" items="${myboard}">
+			<tr class="ub-content us-post">
+				<td class="gall_num" >${row.num}</td>
+				<td class="gall_tit ub-word">${row.title }</td>
+			  <td class="gall_date" >${row.date}</td>
+			  <td class="gall_count">${row.inqu }</td>
+			  <td class="gall_recommend">${row.reco}</td>
+			</tr>
+		</c:forEach>
+			</tbody>
+		</table>
   </header>
   <div class="cont_box">
   
@@ -391,7 +421,7 @@
 			}else{
 		 %>
 	 	<script type="text/javascript">alert("로그인이 필요한 페이지 입니다.");
-	 	document.location.href="http://localhost:8090/free/board/boardlist.do";</script>
+	 	document.location.href="http://localhost:8090/free/board/listboard.do";</script>
 	 	<%
 		}
 	 	%>

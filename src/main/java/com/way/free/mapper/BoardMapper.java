@@ -14,12 +14,10 @@ public class BoardMapper implements RowMapper<board>{
 		// TODO Auto-generated method stub
 		board board=new board();
 		board.setCanum(rs.getInt("canum"));
-		board.setNum(rs.getInt("num"));
 		board.setType(rs.getString("type"));
 		board.setTitle(rs.getString("title"));
 		board.setNick(rs.getString("nick"));
 		board.setPassword(rs.getString("password"));
-		board.setDate(rs.getString("date"));
 		board.setContent(rs.getString("content"));
 		board.setInqu(rs.getInt("inqu"));
 		board.setReco(rs.getInt("reco"));

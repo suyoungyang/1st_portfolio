@@ -2,12 +2,29 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Calendar"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<%
-	session.setAttribute("id","suyoung");
-	session.setAttribute("password","123");
+	Calendar cal = Calendar.getInstance();
+	int year = cal.get(Calendar.YEAR);
+	int month = cal.get(Calendar.MONTH) + 1;
+	int day = cal.get(Calendar.DAY_OF_MONTH);
+	
+	System.out.println(year + "-" + month + "-" + day);
+	//SimpleDateFormat을 사용하여 위와 같은 형태로 표현;
+	String pattern = "yyyy-MM-dd";
+	SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+	String now = sdf.format(new Date());
+	System.out.println("<br>" + now + "<br>");
+	%>
+	
+	<%
+	String nick=(String)session.getAttribute("nick");
+	String password=(String)session.getAttribute("password");
 	%>
 
 	<meta charset="UTF-8">
@@ -100,7 +117,7 @@
 	<div class="area_links"> 
 	  <ul> 
 		<li><a href="https://gall.dcinside.com/m">m.갤러리</a></li>
-		<li><a href="http://localhost:8090/free/board/MyGallog.do">갤로그</a></li>
+		<li><a href="http://localhost:8090/free/board/MyGallog.do?id=${nick}">갤로그</a></li>
 		<li><a href="https://dcnewsj.joins.com/">뉴스</a></li>
 		<li><a href="https://mall.dcinside.com">만두몰</a></li>
 		<li><a href="https://event.dcinside.com">이벤트</a></li>
@@ -438,7 +455,7 @@ gt_recomAjax('hoteltvn');
 </article>
 	<article id="write_wrap" class="clear">
 	<h2 class="blind">갤러리 글쓰기 영역</h2>
-	<form method="GET" name="board" action="http://localhost:8090/free/board/insertboard.do">
+	<form method="POST" name="board" action="http://localhost:8090/free/board/insertboard.do">
 					<table>
 						<tr height="50px">
 							<td colspan="2" align="left"
@@ -457,14 +474,14 @@ gt_recomAjax('hoteltvn');
 						</tr>
 						<tr>
 							<td class="blind" colspan="2">
+							<input type="hidden" name="num" value=""/>
 							<input type="hidden" name="nick" value="${id }"/>
 							<input type="hidden" name="password" value="${password }"/>
 							<input type="hidden" name="canum" value="1" /> 
 							<input type="hidden" name="type" value="일반" />
-							<input type="hidden" name="date" value="${now}"/>
 							<input type="hidden" name="inqu" value="0" />
 							<input type="hidden" name="reco" value="0" />
-							<input type="hidden" name="appor" value="모바일" />
+							<input type="hidden" name="appro" value="모바일" />
 							<input type="hidden" name="concept" value="0" /> 
 							<input type="hidden" name="nonreco" value="0" />
 							<input type="hidden" name="hitnum" value="0" /> 

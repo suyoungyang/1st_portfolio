@@ -47,6 +47,11 @@ public class BoardDAOImpl implements BoardDAO{
 		// TODO Auto-generated method stub
 		
 	}
+	//07.mygallog 게시판리스트출력
+	@Override
+	public List<board> myboard(String nick) throws Exception {
+		return SqlSession.selectList("myboard",nick);
+	}
 	
 
 }

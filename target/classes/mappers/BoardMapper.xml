@@ -15,18 +15,17 @@
     	FROM
     		board
     	ORDER BY
-    		num desc
+    		num desc,
+    		date desc
     </select>
     <!-- 02.게시글 작성 -->
     <insert id="insert">
     	INSERT INTO board(
-    		num,
     		canum,
     		type,
     		title,
     		nick,
     		password,
-    		date,
     		content,
     		inqu,
     		reco,
@@ -36,13 +35,11 @@
     		hitnum,
     		repnum
     	)VALUES(
-    		(SELECT NVL(MAX(num)+1,1)FROM board),
     		#{canum},
     		#{type},
     		#{title},
     		#{nick},
     		#{password},
-    		#{date},
     		#{content},
     		#{inqu},
     		#{reco},
@@ -75,6 +72,10 @@
     	DELETE FROM board
     	WHERE num = #{num}
     </delete>
-    
+    <!-- 07.MyGallog 게시글출력 -->
+    <select id="myboard" resultType="com.way.free.model.board">
+   		SELECT * FROM board
+		WHERE nick = #{nick}
+    </select>
   </mapper>
   
