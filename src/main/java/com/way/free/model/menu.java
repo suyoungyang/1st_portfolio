@@ -1,6 +1,5 @@
 package com.way.free.model;
 
-import java.sql.Date;
 
 public class menu {
 	private Integer canum;
@@ -21,6 +20,12 @@ public class menu {
 	}
 	public void setMajorca(String majorca) {
 		this.majorca = majorca;
+	}
+	public String getMan() {
+		return man;
+	}
+	public void setMan(String man) {
+		this.man = man;
 	}
 	public String getMediumca() {
 		return mediumca;

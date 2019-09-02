@@ -65,13 +65,15 @@ public class BoardController {
 	// HttpSession 세션객체
 	@RequestMapping(value = "viewboard.do", method = RequestMethod.GET)
 	public ModelAndView viewboard(@RequestParam int num, HttpSession session) throws Exception {
+		List<board> list = boardService.listAll();
 		// 조회수 증가처리
 		boardService.increaseViewnum(num, session);
 		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 		// 뷰의 이름
 		mav.setViewName("main/viewboard");
-		mav.addObject("num", boardService.readBoard(num));
+		mav.addObject("view", boardService.readBoard(num));
+		mav.addObject("list", list);// 데이터 저장
 		return mav;
 	}
 
@@ -100,18 +102,5 @@ public class BoardController {
 		mav.addObject("myboard", list);
 		return mav;//MyGallog.jsp로 list가 전달됨.
 	}
-/*
- * 	// 01.게시글 목록
-	// gallery 모든 사용자의 board 조회요청
-	@RequestMapping(value = "listboard.do",method=RequestMethod.GET)
-	public ModelAndView listBoard() throws Exception {
-		List<board> list = boardService.listAll();
-		// ModelAndView - 모델과 뷰
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("main/gallery");// 뷰를 gallery.jsp로 설정
-		mav.addObject("list", list);// 데이터 저장
-		return mav;// gallery.jsp로 list가 전달된다.
-	}
- * 
- */
+
 }

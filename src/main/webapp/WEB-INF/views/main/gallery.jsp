@@ -12,14 +12,6 @@
 	<meta name="author" content="디시인사이드">
 	<meta name="title" content="호텔 델루나 갤러리">
 	<meta name="description" content="국내방송2, 호텔 델루나, hoteltvn community portal dcinside">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="호텔 델루나 갤러리">
-	<meta property="og:description" content="국내방송2, 호텔 델루나, hoteltvn community portal dcinside">
-	<meta property="og:image" content="https://nstatic.dcinside.com/dc/w/images/descrip_img.png">
-	<meta property="og:url" content="https://gall.dcinside.com/board/lists/?id=hoteltvn">
-	<meta property="og:site_name" content="디시인사이드">
-	<meta property="og:updated_time" content="2019-08-22 12:43:46">
-	<meta property="og:locale" content="ko_KR">
 	<title>호텔 델루나 갤러리</title>
 	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css?v=1"/>
 	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/common.css?190716"/>
@@ -80,7 +72,7 @@
 		 <li><a href="#">뉴스</a></li>
 		 <li><a href="#">만두몰</a></li>
 		 <li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="">로그인</a></li>		
+		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/login.do">로그인</a></li>		
 	  </ul>
 	</div>
   </div>
@@ -464,8 +456,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
     <div class="switch_btnbox">
   			&nbsp;
   			<%
-  			session.setAttribute("nick","chang");
-  			session.setAttribute("password","123");
+  			session.setAttribute("nick",null);
   			String nick=(String)session.getAttribute("nick");
   			System.out.println("nick>>"+nick);
   			if(nick==null){
@@ -474,7 +465,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 	  			<%
   			}else{
 	  			%>
-	  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboardIn.do"></a>
+	  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboardIn.do?nick=${nick }"></a>
 	  			<%
   			}
   			%>
@@ -510,7 +501,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 		<c:forEach var="row" items="${list}">
 			<tr class="ub-content us-post">
 				<td class="gall_num" >${row.num}</td>
-				<td class="gall_tit ub-word">${row.title }</td>
+				<td class="gall_tit ub-word"><a href="http://localhost:8090/free/board/viewboard.do?num=${row.num }">${row.title }</a></td>
 			  	<td class="gall_writer ub-writer">
 				<span class='nickname' title='ㅇㅇ'><em>${row.nick }</em></span></td>
 			  <td class="gall_date" >${row.date}</td>
@@ -536,7 +527,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 	  			<%
   			}else{
   			%>
-  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboardIn.do')">글쓰기</button>
+  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboardIn.do?nick=${nick}')">글쓰기</button>
   			<%
   			}
   			%>
@@ -603,7 +594,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
   <!-- 로그인 정보 -->
   <div id="login_box" class="login_box">
 	<div class="user_info" data-alarmId="">
-	  <strong onclick="location='https://dcid.dcinside.com/join/login.php?s_url=https%3A%2F%2Fgall.dcinside.com%2Fboard%2Flists%2F%3Fid%3Dhoteltvn&s_key=550'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
+	  <strong onclick="location='http://localhost:8090/free/login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
 	</div>
 	<div class="user_option">
 	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">갤로그<em class="sp_loginout icon_visit"></em></a></span>
