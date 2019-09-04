@@ -48,13 +48,24 @@ public class UserController {
       return "userInfo/userInfo01";
    }
    
+ //로그인 페이지 이동 요청
+   @RequestMapping(value = "/move_login.do", method ={RequestMethod.POST,RequestMethod.GET})
+   public String movelogin(Model model) {
+      model.addAttribute("user", new user() );
+      return "login/login";
+   }
+   
    //수정된 로그인!
    @RequestMapping(value="/login.do", method={RequestMethod.POST,RequestMethod.GET})
    public String login(Model model,
-         @RequestParam(value = "id", required = true) String id, @RequestParam(value = "password", required = true) String password) throws Exception {
-      if (userDao.login(id, password) != null) {
-         model.addAttribute("user", userDao.select(id));
-         return "userInfo/userInfo01";
+         @RequestParam(value = "id", defaultValue = "null", required = true) String id, @RequestParam(value = "password", defaultValue = "null", required = true) String password) throws Exception {
+      if (id != null && password != null) {
+         if (userDao.login(id, password) != null) {
+            model.addAttribute("user", userDao.select(id));
+            return "userInfo/userInfo01";
+         } else {
+            return "menu/mainmenu";
+         }
       } else {
          return "menu/mainmenu";
       }
@@ -132,4 +143,6 @@ public class UserController {
          userDao.delete(user);
          return "redirect:/login.do";
       }
+      
+      
 }

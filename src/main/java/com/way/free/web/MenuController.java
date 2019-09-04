@@ -27,4 +27,8 @@ public class MenuController {
 		mav.addObject("menulist", list);// 데이터 저장
 		return mav;// mainmenu.jsp로 list가 전달된다.
 	}
+	@RequestMapping(value = "loginmenu.do",method=RequestMethod.GET)
+	public String loginmenu() throws Exception{
+		return "menu/loginMain";
+	}
 }

@@ -352,7 +352,7 @@ lately_gall_init('', '', '');
   <!-- 로그인 정보 -->
   <div id="login_box" class="login_box">
 	<div class="user_info" data-alarmId="">
-	  <strong onclick="location='http://localhost:8090/free/login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
+	  <strong onclick="location='http://localhost:8090/free/move_login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
 	</div>
 	<div class="user_option">
 	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">갤로그<em class="sp_loginout icon_visit"></em></a></span>

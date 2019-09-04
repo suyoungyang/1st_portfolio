@@ -802,18 +802,16 @@ viewComments(1, 'VIEW_PAGE');
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="row" items="${list}">
 											<tr class="ub-content us-post">
-												<td class="gall_num">${row.num}</td>
+												<td class="gall_num">${board.num}</td>
 												<td class="gall_tit ub-word"><a
-													href="http://localhost:8090/free/board/viewboard.do?num=${row.num }">${row.title }</a></td>
+													href="http://localhost:8090/free/board/viewboard.do?num=${board.num }">${board.title }</a></td>
 												<td class="gall_writer ub-writer"><span
 													class='nickname' title='ㅇㅇ'><em>${row.nick }</em></span></td>
 												<td class="gall_date">${row.date}</td>
 												<td class="gall_count">${row.inqu }</td>
 												<td class="gall_recommend">${row.reco}</td>
 											</tr>
-										</c:forEach>
 									</tbody>
 								</table>
 
