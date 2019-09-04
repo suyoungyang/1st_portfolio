@@ -456,7 +456,8 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
     <div class="switch_btnbox">
   			&nbsp;
   			<%
-  			session.setAttribute("nick",null);
+  			session.setAttribute("nick","chang");
+  			session.setAttribute("password","123");
   			String nick=(String)session.getAttribute("nick");
   			System.out.println("nick>>"+nick);
   			if(nick==null){
@@ -501,7 +502,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 		<c:forEach var="row" items="${list}">
 			<tr class="ub-content us-post">
 				<td class="gall_num" >${row.num}</td>
-				<td class="gall_tit ub-word"><a href="http://localhost:8090/free/board/viewboard.do?num=${row.num }">${row.title }</a></td>
+				<td class="gall_tit ub-word"><a href="http://localhost:8090/free/board/readboard.do?num=${row.num }">${row.title }</a></td>
 			  	<td class="gall_writer ub-writer">
 				<span class='nickname' title='ㅇㅇ'><em>${row.nick }</em></span></td>
 			  <td class="gall_date" >${row.date}</td>

@@ -102,5 +102,16 @@ public class BoardController {
 		mav.addObject("myboard", list);
 		return mav;//MyGallog.jsp로 list가 전달됨.
 	}
+	
+	//07.gallery 상세페이지
+	@RequestMapping(value="readboard.do",method=RequestMethod.GET)
+	public ModelAndView readboard(@RequestParam int num) throws Exception{
+		board board=boardService.readBoard(num);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("main/viewboard");
+		mav.addObject("view", board);
+		return mav;
+	}
+	
 
 }

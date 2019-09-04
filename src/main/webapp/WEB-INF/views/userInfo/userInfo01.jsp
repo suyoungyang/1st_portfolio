@@ -1,137 +1,152 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="action" value="update_userNick.do" />
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="content-language" content="kr">
+  <meta name="google-site-verification" content="8_SyZg2Wg3LNnCmFXzETp7ld4yjZB8ny17m8QsYsLwk">
+  <meta name="author" content="µð½ÃÀÎ»çÀÌµå">
+  <meta name="title" content="µð½Ã È¸¿øÁ¤º¸">
+  <meta name="description" content="¾à°üµ¿ÀÇ">
+  <title>µð½Ã È¸¿øÁ¤º¸</title>
+  <link rel="shortcut icon" href="//nstatic.dcinside.com/dc/w/images/logo_icon.ico"/>
+  <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/login.css"/>
+  <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/common.css"/>
+  <script type="text/javascript" src="//nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
+  <script type="text/javascript" src="./js/member.js?190104"></script>
+  <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/ie7.css"/>
+  <![endif]-->
 </head>
 <body>
-	<div id="top">
-		<!-- ìƒë‹¨ -->
-		<header>
-			<div>
-				<!-- ë¡œê³ ì˜ì—­ -->
-				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"> <img
-						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png"
-						alt="ë””ì‹œì¸ì‚¬ì´ë“œ">
-					</a>
-				</h1>
-				<!-- //ë¡œê³ ì˜ì—­ -->
-				<div>
-					<ul>
-						<li><a href="http://gall.dcinside.com">ê°¤ëŸ¬ë¦¬</a></li>
-						<li><a href="http://gall.dcinside.com/m">m.ê°¤ëŸ¬ë¦¬</a></li>
-						<li><a href="http://gallog.dcinside.com">ê°¤ë¡œê·¸</a></li>
-						<li><a href="http://dcnewsj.joins.com">ë‰´ìŠ¤</a></li>
-						<li><a href="http://event.dcinside.com">ì´ë²¤íŠ¸</a></li>
-						<li><a href="http://mall.dcinside.com">ë§Œë‘ëª°</a></li>
-					</ul>
-				</div>
-			</div>
-		</header>
-		<main>
-		<div>
-			<article>
-				<section id="pagemenu">
-					<ul class="page_menu three clear">
-						<li><a href="userInfo01.do?id=${user.id }">ê°œì¸ ì •ë³´ ë³€ê²½</a></li>
-						<li><a href="move_updatePassword.do?id=${user.id }">ë¹„ë°€ë²ˆí˜¸ ë³€ê²½</a></li>
-						<li><a href="predelete_userInfo.do?id=${user.id }">íšŒì› íƒˆí‡´</a></li>
-					</ul>
-				</section>
-				<section>
-					<div>
-						<h3>ê¸°ë³¸ ì •ë³´ ë³€ê²½</h3>
-					</div>
-					<div>
-						<div>
-							<form:form id="modifyForm1" name="submitForm1" method="post"
-								action="${action }" commandName="user">
-								<fieldset>
-									<input type="hidden" id="age_type" name="age_type"
-										value="general"> <input type="hidden" id="gubunDate"
-										name="gubunDate" value="2005-08-27">
-									<div>
-										<div>ì•„ì´ë””</div>
-										<div>
-											<input type="text" name = "id" title="ì•„ì´ë””" value="${user.id }" readonly>
-										</div>
-									</div>
-									<div>
-										<div>ë‹‰ë„¤ìž„</div>
-										<div>
-											<div>
-												<input type="text" title="ë‹‰ë„¤ìž„ ìž…ë ¥" maxlength="20" name="nick"
-													id="nick" value="${user.nick }"
-													placeholder="ì‚¬ìš©í•  ë‹‰ë„¤ìž„ì„ ìž…ë ¥í•´ ì£¼ì„¸ìš”">
-												<div>
-													<select name="fixnic" id="fixnic" name="fixnic">
-														<!--onchange="nicktype_change();" -->
-														<option value="1" selected>ë¹„ê³ ì •ë‹‰</option>
-														<option value="0">ê³ ì •ë‹‰</option>
-													</select>
-												</div>
-											</div>
-											<div class="tip_msgbox">
-												<p class="tip_msg" id="nick_info">2~20ìž ë‹‰ë„¤ìž„ì„
-													ìž…ë ¥í•´ì£¼ì„¸ìš”.(ë„ì–´ì“°ê¸°ëŠ” í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.)</p>
-												<p class="tip_msg ok" id="nick_able" style="display: none">O
-													ì‚¬ìš© ê°€ëŠ¥í•œ ë‹‰ë„¤ìž„ ìž…ë‹ˆë‹¤.</p>
-												<p class="tip_msg error" id="nick_unable"
-													style="display: none;">X ì‚¬ìš©í•  ìˆ˜ ì—†ëŠ” ë‹‰ë„¤ìž„ ìž…ë‹ˆë‹¤.</p>
-											</div>
-										</div>
-									</div>
-									<div>
-										<div>ì´ë¦„</div>
-										<div>
-											<input type="text" title="ì´ë¦„" id="name" name="name"
-												value="${user.name }" readonly>
-										</div>
-									</div>
-									<div>
-										<div>ê°€ìž… ì¸ì¦ ì´ë©”ì¼</div>
-										<div>
-											<input type="text" title="ì´ë©”ì¼" value="${user.mail }"
-												id="mail" readonly> <span>@</span> <input
-												type="text" title="ì´ë©”ì¼ ì£¼ì†Œ" value="${user.mail01 }"
-												id="mail01" readonly>
-											<a href = "move_updateEmail.do?id=${user.id }"> ì¸ì¦ ì´ë©”ì¼ ë³€ê²½</a>
-										</div>
-									</div>
-								</fieldset>
-								<div>
-									<div>
-										<input type="submit" id="modify_info" value="í™•ì¸" />
-									</div>
-								</div>
-							</form:form>
-						</div>
-					</div>
-				</section>
-
-			</article>
-		</div>
-		</main>
-		<footer>
-			<div class="info_policy">
-				<a href="https://www.dcinside.com/company">íšŒì‚¬ì†Œê°œ</a> <a
-					href="https://www.dcinside.com/company#recruit">ì¸ìž¬ì±„ìš©</a> <a
-					href="https://www.dcinside.com/company#alliance">ì œíœ´ì•ˆë‚´</a> <a
-					href="https://nstatic.dcinside.com/dc/dcad/w/index.html">ê´‘ê³ ì•ˆë‚´</a> <a
-					href="https://nstatic.dcinside.com/dc/w/policy/policy_index.html">ì´ìš©ì•½ê´€</a>
-				<a
-					href="https://nstatic.dcinside.com/dc/w/policy/privacy_index.html"><b>ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨</b></a>
-				<a href="https://nstatic.dcinside.com/dc/w/policy/youth_policy.html">ì²­ì†Œë…„ë³´í˜¸ì •ì±…</a>
-			</div>
-			<div class="copyright">Copyright â“’ 1999 - 2019 dcinside. All
-				rights reserved</div>
-		</footer>
-	</div>
+  <!--½ºÅµ ³»ºñ°ÔÀÌ¼Ç-->
+  <div class="skip">
+    <a href="#pagemenu"><span>ÆäÀÌÁö¸Þ´º ¿µ¿ª ¹Ù·Î°¡±â</span></a>
+    <a href="#contbox"><span>º»¹® ¿µ¿ª ¹Ù·Î°¡±â</span></a>
+  </div>
+  <!-- //½ºÅµ ³»ºñ°ÔÀÌ¼Ç-->
+  <div id="top" class="width868 login_wrap">
+    <!-- »ó´Ü -->
+    <header class="dcheader bg">
+      <div class="dchead">
+        <!-- ·Î°í¿µ¿ª -->
+        <h1 class="dc_logo">
+          <a href="https://www.dcinside.com/">
+            <img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png" alt="µð½ÃÀÎ»çÀÌµå">
+          </a>
+        </h1>
+        <!-- //·Î°í¿µ¿ª -->
+        <div class="area_links">
+          <ul>
+            <li><a href="http://gall.dcinside.com">°¶·¯¸®</a></li>
+            <li><a href="http://gall.dcinside.com/m">m.°¶·¯¸®</a></li>
+            <li><a href="http://gallog.dcinside.com">°¶·Î±×</a></li>
+            <li><a href="http://dcnewsj.joins.com">´º½º</a></li>
+            <li><a href="http://event.dcinside.com">ÀÌº¥Æ®</a></li>
+            <li><a href="http://mall.dcinside.com">¸¸µÎ¸ô</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main id="container">
+      <div class="content info_change">
+        <article>
+          <h2 class="blind">°³ÀÎ Á¤º¸ º¯°æ</h2>
+          <section id="pagemenu">
+            <h2 class="blind">ÆäÀÌÁö ¸Þ´º</h2>
+            <ul class="page_menu three clear">
+              <li><a href="userInfo01.do?id=${user.id }" class="pmenu on">°³ÀÎ Á¤º¸ º¯°æ</a></li>
+              <li><a href="move_updatePassword.do?id=${user.id }" class="pmenu">ºñ¹Ð¹øÈ£ º¯°æ</a></li>
+              <li><a href="predelete_userInfo.do?id=${user.id }" class="pmenu">È¸¿ø Å»Åð</a></li>
+            </ul>
+          </section>
+          <section>
+            <div class="cont_head">
+              <h3 class="head_tit">±âº» Á¤º¸ º¯°æ</h3>
+            </div>
+            <div id="contbox" class="con_box brd">
+              <div class="con changform_box">
+                <form:form id="modifyForm1" name="submitForm1" method="post"
+                        action="update_userNick.do" commandName="user">
+                  <fieldset>
+                     <input type="hidden" id="age_type" name="age_type" value="general">
+               <input type="hidden" id="gubunDate" name="gubunDate" value="2005-09-04">
+                    <legend class="blind">±âº» Á¤º¸ º¯°æ Æû</legend>
+                    <div class="form_group id">
+                      <div class="form_tit">¾ÆÀÌµð</div>
+                      <div class="form_txt">
+                        <input type="text" class="int bg" title="¾ÆÀÌµð" value="${user.id }" readonly>
+                      </div>
+                    </div>
+                    <div class="form_group nick">
+                      <div class="form_tit">´Ð³×ÀÓ</div>
+                      <div class="form_txt">
+                        <div class="clear">
+                          <input type="text" class="int" title="´Ð³×ÀÓ ÀÔ·Â" maxlength="20" name="nick" id="user_nick" value="${user.nick }" placeholder="»ç¿ëÇÒ ´Ð³×ÀÓÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+                          <div class="select_box subject_select nick_sel">
+                             <select name="fixnic" id="nick_type" name="fixnic">
+                             <option value="1" selected>ºñ°íÁ¤´Ð</option>
+                             <option value="0" >°íÁ¤´Ð</option>
+                           </select>
+                            <a href="#" onclick="showLayer(this, 'nickTypeLayer');return false;"><div class="select_area"><span class="selectedNickType">ºñ°íÁ¤´Ð</span><em class="sp_img icon_option_more"></em></div></a>
+                            <ul id="nickTypeLayer" class="option_box subject_option white" style="left:0;top:34px;display:none"><!-- ¿É¼Ç ÆîÄ§ display:block -->
+                              <li><a href="javascript:changeNickType('1', 'nickTypeLayer');">ºñ°íÁ¤´Ð</a></li>
+                              <li><a href="javascript:changeNickType('2', 'nickTypeLayer');">°íÁ¤´Ð</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="tip_msgbox">
+                          <p class="tip_msg" id="nick_info">2~20ÀÚ ´Ð³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.(¶ç¾î¾²±â´Â ÇÒ ¼ö ¾ø½À´Ï´Ù.)</p>
+                          <p class="tip_msg ok" id="nick_able" style="display:none">O »ç¿ë °¡´ÉÇÑ ´Ð³×ÀÓ ÀÔ´Ï´Ù.</p>
+                          <p class="tip_msg error" id="nick_unable" style="display:none;">X »ç¿ëÇÒ ¼ö ¾ø´Â ´Ð³×ÀÓ ÀÔ´Ï´Ù.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form_group name">
+                      <div class="form_tit">ÀÌ¸§</div>
+                      <div class="form_txt">
+                        <input type="text" class="int bg" title="ÀÌ¸§" id="dc_name" name="name"
+                                    value="${user.name }" readonly>
+                      </div>
+                    </div>
+                    <div class="form_group email">
+                      <div class="form_tit">°¡ÀÔ ÀÎÁõ ÀÌ¸ÞÀÏ</div>
+                      <div class="form_txt">
+                        <input type="text" class="int bg" title="ÀÌ¸ÞÀÏ"  value="${user.mail }" id="mail" readonly >
+                        <span class="deco_mail">@</span>
+                        <input type="text" class="int bg" title="ÀÌ¸ÞÀÏ ÁÖ¼Ò" value="${user.mail01 }" id="mail01" readonly>
+                        <button type="submit" class="btn_white small btn_change" id="email_changePop" onclick="locaion.href='http://localhost:8090/free/move_updateEmail.do?id=${user.id }'">ÀÎÁõ ÀÌ¸ÞÀÏ º¯°æ</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="btn_box clear">
+              <div class="fr">
+                <input type="submit" class="btn_blue btn_ok" id="modify_info" value="È®ÀÎ"/>
+              </div>
+            </div>
+                </form:form>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+         <footer class="dcfoot">
+     <div class="info_policy">
+       <a href="https://www.dcinside.com/company">È¸»ç¼Ò°³</a>
+       <a href="https://www.dcinside.com/company#recruit">ÀÎÀçÃ¤¿ë</a>
+       <a href="https://www.dcinside.com/company#alliance">Á¦ÈÞ¾È³»</a>
+       <a href="https://nstatic.dcinside.com/dc/dcad/w/index.html">±¤°í¾È³»</a>
+       <a href="https://nstatic.dcinside.com/dc/w/policy/policy_index.html">ÀÌ¿ë¾à°ü</a>
+       <a href="https://nstatic.dcinside.com/dc/w/policy/privacy_index.html"><b>°³ÀÎÁ¤º¸Ã³¸®¹æÄ§</b></a>
+       <a href="https://nstatic.dcinside.com/dc/w/policy/youth_policy.html">Ã»¼Ò³âº¸È£Á¤Ã¥</a>
+     </div>
+     <div class="copyright">Copyright ¨Ï 1999 - 2019 dcinside. All rights reserved</div>
+    </footer>
+  </div>
 </body>
 </html>

@@ -267,8 +267,8 @@
 	        </div>
 	      </div>
 	    </div>
-	    <!-- //상단 -->
-	    <main id="container">
+<!-- //상단 -->
+<main id="container">
 			<article>
 				<h2 class="blind">갤로그 홈</h2>
 				<div class="conent_wrap">
@@ -286,9 +286,8 @@
 						
 					</ul>
 					<script>$('.gallog_menu .home').addClass('on');</script>
-				  <section>
-					<div id="jquery_jplayer"></div>
-		
+<section>
+
 <div class="gallog_cont">
   <header>
 	<div class="cont_head clear">
@@ -296,7 +295,7 @@
 	  <a href="/moonreia/posting" class="btn_blue smallest go">전체보기</a>
 	</div>
 	<!-- 게시판형 갤러리 리스트-->
-	    <table class="gall_list">
+	    <table style="width:100%;">
 		  <caption>갤러리 리스트</caption>
 		  <colgroup>
 			<col style="width:6%">
@@ -314,28 +313,21 @@
 			  <th scope="col">추천</th>
 			</tr>
 		  </thead>
-		  	<tbody>
-		 
-		<c:forEach var="row" items="${myboard}">
-			<tr class="ub-content us-post">
-				<td class="gall_num" >${row.num}</td>
-				<td class="gall_tit ub-word">${row.title }</td>
-			  <td class="gall_date" >${row.date}</td>
-			  <td class="gall_count">${row.inqu }</td>
-			  <td class="gall_recommend">${row.reco}</td>
-			</tr>
-		</c:forEach>
-			</tbody>
+		  <tbody>
+				<c:forEach var="row" items="${myboard}">
+					<tr>
+						<td align="center">${row.num}</td>
+						<td align="center" >${row.title }</td>
+						<td align="center" >${row.date}</td>
+						<td align="center" >${row.inqu }</td>
+		  				<td align="center" >${row.reco}</td>
+					</tr>
+				</c:forEach>
+		 	</tbody>
 		</table>
   </header>
-  <div class="cont_box">
-  
-	
-<div class="gallog_empty small">
-  등록된 게시글이 없습니다.</div>
-	
-  </div>
 </div>
+
 </section>
 <!-- //내 게시글 -->
 
@@ -399,7 +391,7 @@
 				  </section>
 				</div>
 			</article>
-	    </main>
+	 </main>
 	    <!-- 하단 -->
 	    <footer class="dcfoot">
 	     <div class="info_policy">
