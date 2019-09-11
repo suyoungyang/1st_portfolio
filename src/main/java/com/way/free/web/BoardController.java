@@ -72,7 +72,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		// 뷰의 이름
 		mav.setViewName("main/viewboard");
-		mav.addObject("view", boardService.readBoard(num));
+		mav.addObject("board", boardService.readBoard(num));
 		mav.addObject("list", list);// 데이터 저장
 		return mav;
 	}

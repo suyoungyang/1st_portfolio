@@ -11,14 +11,6 @@
 	<meta name="author" content="디시인사이드">
 	<meta name="title" content="## CONNECTING HEARTS! 디시인사이드입니다. ## ">
 	<meta name="description" content="국내 최대 커뮤니티 포털 디시인사이드. 힛갤러리, 유저이슈 등 인터넷 트렌드 총 집합">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="## CONNECTING HEARTS! 디시인사이드입니다. ## ">
-	<meta property="og:description" content="국내 최대 커뮤니티 포털 디시인사이드. 힛갤러리, 유저이슈 등 인터넷 트렌드 총 집합">
-	<meta property="og:image" content="https://nstatic.dcinside.com/dc/w/images/descrip_img.png">
-	<meta property="og:url" content="https://gall.dcinside.com/">
-	<meta property="og:site_name" content="디시인사이드">
-	<meta property="og:updated_time" content="2019-09-03 02:22:22">
-	<meta property="og:locale" content="ko_KR">
 	<title>## CONNECTING HEARTS! 디시인사이드입니다. ## </title>
 	<link rel="shortcut icon" href="//nstatic.dcinside.com/dc/w/images/logo_icon.ico" />
 	<link rel="apple-touch-icon" href="//nstatic.dcinside.com/dc/m/img/dcinside_icon.png">

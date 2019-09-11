@@ -136,7 +136,6 @@
 	  <button type="button" class="adr_copy" onclick="copy_gall_url()">갤주소 복사</button>
 	  <button type="button" class="block_setting" onclick="open_user_block()">차단설정</button>
 	  	  <button type="button" class="gall_useinfo" onclick="open_user_guide()">갤러리 이용안내</button>
-	   
 	  	</div>
 		  </div>
 </header>  
@@ -379,9 +378,6 @@ gt_recomAjax('hoteltvn');
 	<button type="button" class="" onclick="ub_remove_text(this)"><span class="blind">차단설정 단어 삭제</span><em class="sp_img icon_bword_del"></em></button>
 </li>
 </script>	  
-	  <div class="banner_box">
-	  <script type="text/javascript" src="https://addc.dcinside.com/NetInsight/js/dcinside/gallery/list@top_tv"></script>	  </div>
-	  
 	  <!-- 최근방문 갤러리 -->
 	  <div id="visit_history" class="visit_history">
 	<h3 class="tit">최근 방문 갤러리</h3>
@@ -502,7 +498,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 		<c:forEach var="row" items="${list}">
 			<tr class="ub-content us-post">
 				<td class="gall_num" >${row.num}</td>
-				<td class="gall_tit ub-word"><a href="http://localhost:8090/free/board/readboard.do?num=${row.num }">${row.title }</a></td>
+				<td class="gall_tit ub-word"><a href="http://localhost:8090/free/board/viewboard.do?num=${row.num }">${row.title }</a></td>
 			  	<td class="gall_writer ub-writer">
 				<span class='nickname' title='ㅇㅇ'><em>${row.nick }</em></span></td>
 			  <td class="gall_date" >${row.date}</td>
@@ -593,7 +589,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 
 <div>
   <!-- 로그인 정보 -->
-  <div id="login_box" class="login_box">
+  <div id="login_box" class="login_box" >
 	<div class="user_info" data-alarmId="">
 	  <strong onclick="location='http://localhost:8090/free/login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
 	</div>
@@ -696,53 +692,10 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 </section>
 <script type="text/javascript">
 alarm_init();
-</script>		<div class="rightbanner">
-	<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
-<script>
-  var googletag = googletag || {};
-  googletag.cmd = googletag.cmd || [];
-</script>
-
-<script>
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/76378310/list_right_300600', [300, 600], 'div-gpt-ad-1538097649334-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
-    googletag.enableServices();
-  });
-</script>
-<!-- /76378310/list_right_300600 -->
-<div id='div-gpt-ad-1538097649334-0' style='height:600px; width:300px;'>
-<script>
-googletag.cmd.push(function() { googletag.display('div-gpt-ad-1538097649334-0'); });
-</script>
-</div>			<div id="taboola-right-rail-thumbnails"></div>
-		<script type="text/javascript">
-		  window._taboola = window._taboola || [];
-		  _taboola.push({
-		    mode: 'thumbnails-rr_abp-mode',
-		    container: 'taboola-right-rail-thumbnails',
-		    placement: 'Right Rail Thumbnails',
-		    target_type: 'mix'
-		  });
-		</script>
-		</div>
-
-<script type="text/javascript">
-gr_recomAjax();
-gr_newsAjax();
-gr_hit();
-gr_oldhit();
-gr_toprecomAjax();
-gr_issueZoom();
-gr_wiki();gr_issueKeyword();</script>  <script type="text/javascript" src="https://addc.dcinside.com/NetInsight/js/dcinside/pv/pc@list_tv"></script>  <div class="ad_bottom_list"  style="clear:none;float:left;width:840px">
-	<ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-urrwd9deagdd" 
- data-ad-width   = "728" 
- data-ad-height  = "90"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/adfit/static/ad.min.js" async></script></div>
+</script>	
 </main>
 </div>
-
+<!-- 하단 갤러리 리스트 -->
     <!-- 하단 -->
     <footer class="dcfoot">
     
