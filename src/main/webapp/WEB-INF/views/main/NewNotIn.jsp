@@ -35,17 +35,6 @@
 <meta name="title" content="호텔 델루나 갤러리">
 <meta name="description"
 	content="국내방송2, 호텔 델루나, hoteltvn community portal dcinside">
-<meta property="og:type" content="website">
-<meta property="og:title" content="호텔 델루나 갤러리">
-<meta property="og:description"
-	content="국내방송2, 호텔 델루나, hoteltvn community portal dcinside">
-<meta property="og:image"
-	content="https://nstatic.dcinside.com/dc/w/images/descrip_img.png">
-<meta property="og:url"
-	content="https://gall.dcinside.com/board/write/?id=hoteltvn">
-<meta property="og:site_name" content="디시인사이드">
-<meta property="og:updated_time" content="2019-08-22 14:06:06">
-<meta property="og:locale" content="ko_KR">
 <title>호텔 델루나 갤러리</title>
 
 <link rel="stylesheet" type="text/css"
@@ -90,10 +79,10 @@
 			<div class="dchead">
 				<!-- 로고영역 -->
 				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"> <img
+					<a href="http://localhost:8090/free/board/menulist.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png"
 						alt="디시인사이드">
-					</a> <a href="https://gall.dcinside.com/"> <img
+					</a> <a href="http://localhost:8090/free/board/listboard.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/tit_gallery.png"
 						alt="갤러리">
 					</a>
@@ -133,13 +122,13 @@
 				</div>
 				<div class="area_links">
 					<ul>
-						<li><a href="https://gall.dcinside.com/m">m.갤러리</a></li>
-						<li><a href="http://localhost:8090/free/board/MyGallog.do">갤로그</a></li>
-						<li><a href="https://dcnewsj.joins.com/">뉴스</a></li>
-						<li><a href="https://mall.dcinside.com">만두몰</a></li>
-						<li><a href="https://event.dcinside.com">이벤트</a></li>
+						<li><a href="#">m.갤러리</a></li>
+						<li><a href="http://localhost:8090/free/board/MyGallog.do?nick=${nick }">갤로그</a></li>
+						<li><a href="#">뉴스</a></li>
+						<li><a href="#">만두몰</a></li>
+						<li><a href="#">이벤트</a></li>
 						<li><a class="btn_top_loginout"
-							href="https://dcid.dcinside.com/join/login.php?s_url=https%3A%2F%2Fgall.dcinside.com%2Fboard%2Fwrite%2F%3Fid%3Dhoteltvn&s_key=769">로그인</a></li>
+							href="#">로그인</a></li>
 					</ul>
 				</div>
 			</div>
@@ -159,16 +148,16 @@
 							<!--2차메뉴 열림 : display:block -->
 							<span class="sp_img depth_bg"></span>
 							<ul class="depth2_list">
-								<li><a href="https://game.dcinside.com">게임</a></li>
-								<li><a href="https://enter.dcinside.com">연예/방송</a></li>
-								<li><a href="https://sports.dcinside.com">스포츠</a></li>
-								<li><a href="https://edu.dcinside.com">교육/금융/IT</a></li>
-								<li><a href="https://travel.dcinside.com">여행/음식/생물</a></li>
-								<li><a href="https://hobby.dcinside.com">취미/생활</a></li>
+								<li><a href="#">게임</a></li>
+								<li><a href="#">연예/방송</a></li>
+								<li><a href="#">스포츠</a></li>
+								<li><a href="#">교육/금융/IT</a></li>
+								<li><a href="#">여행/음식/생물</a></li>
+								<li><a href="#">취미/생활</a></li>
 							</ul>
 						</div> <!-- //2차메뉴 --></li>
 					<li><a href="#" class="link_gnb " url_code="mgallery">m.갤러리</a></li>
-					<li><a href="http://localhost:8090/free/board/MyGallog.do"
+					<li><a href="http://localhost:8090/free/board/MyGallog.do?nick=${nick }"
 						class="link_gnb" url_code="gallog">갤로그</a></li>
 					<li><a href="#" class="link_gnb" url_code="dcnews">뉴스</a></li>
 					<li><a href="#" class="link_gnb" url_code="event">이벤트</a></li>
@@ -200,7 +189,7 @@
 				<div class="page_head clear">
 					<div class="fl clear">
 						<h2>
-							<a href="http://localhost:8090/free/board/boardlist.do">호텔
+							<a href="http://localhost:8090/free/board/listboard.do">호텔
 								델루나 갤러리</a>
 						</h2>
 

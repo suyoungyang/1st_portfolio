@@ -1,6 +1,9 @@
 package com.way.free.user;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.way.free.model.user;
 import com.way.free.user.UserController;
-import com.way.free.user.UserDao;
 
 @Controller
 public class UserController {
@@ -141,8 +143,16 @@ public class UserController {
       @RequestMapping(value = "/deleteUser.do", method = {RequestMethod.POST,RequestMethod.GET})
       public String deleteUser(@ModelAttribute user user ,@RequestParam(value="id", required = true) String id) {
          userDao.delete(user);
-         return "redirect:/login.do";
+         return "menu/mainmenu";
       }
+      
+      @RequestMapping(value = "/board/loginmenu.do",method=RequestMethod.GET)
+      public String loginmenu(Model model,@RequestParam(value = "id", required = true) String id,HttpServletRequest request) throws Exception{
+    	  HttpSession session=request.getSession();
+    	  session.setAttribute("user", userDao.select(id));
+    	  model.addAttribute("user", userDao.select(id));
+  		return "menu/loginMain";
+  	}
       
       
 }

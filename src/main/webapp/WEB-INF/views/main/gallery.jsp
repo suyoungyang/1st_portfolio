@@ -34,10 +34,10 @@
   <div class="dchead">
 	<!-- 로고영역 -->
 	<h1 class="dc_logo">
-	  <a href="https://www.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 		<img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png" alt="디시인사이드">
 	  </a>
-	  <a href="https://gall.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 	  	<img src="https://nstatic.dcinside.com/dc/w/images/tit_gallery.png" alt="갤러리">
 	  </a>
 	</h1>
@@ -72,7 +72,7 @@
 		 <li><a href="#">뉴스</a></li>
 		 <li><a href="#">만두몰</a></li>
 		 <li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/login.do">로그인</a></li>		
+		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/move_login.do">로그인</a></li>		
 	  </ul>
 	</div>
   </div>
@@ -83,7 +83,7 @@
         <h2 class="blind">GNB</h2>
         <ul class="gnb_list clear">
           <li>
-            <a class="hover_gnb link_gnb on" href="https://gall.dcinside.com" url_code="gallery">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a>
+            <a class="hover_gnb link_gnb on" href="http://localhost:8090/free/board/listboard.do" url_code="gallery">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a>
 			<span class="gnb_area" style="display:block;width:77px;height:12px;position:absolute;left:0;bottom:0;"></span>
             <!-- 2차메뉴 -->
             <div class="depth2" style="left:0;display:none"><!--2차메뉴 열림 : display:block -->
@@ -451,21 +451,7 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
   </div>
     <div class="switch_btnbox">
   			&nbsp;
-  			<%
-  			session.setAttribute("nick","chang");
-  			session.setAttribute("password","123");
-  			String nick=(String)session.getAttribute("nick");
-  			System.out.println("nick>>"+nick);
-  			if(nick==null){
-	  			%>
-	  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboard.do"></a>
-	  			<%
-  			}else{
-	  			%>
-	  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboardIn.do?nick=${nick }"></a>
-	  			<%
-  			}
-  			%>
+  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboard.do?nick=${user.nick }"></a>	
 			<span class="blind">글쓰기</span>
 			<em class="inner"></em><em class="inner"></em><em class="inner"></em><em class="inner"></em>
 			  </div>
@@ -517,18 +503,8 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
         	<button type="button" class="list_bottom btn_white" onclick="listKindTab('recommend','list');return false;">개념글</button>	        	
         </div>
 	  	<div class="fr">
-	  		<%
-	  		if(nick==null){
-	  			%>
-	  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboard.do')">글쓰기</button>
-	  			<%
-  			}else{
-  			%>
-  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboardIn.do?nick=${nick}')">글쓰기</button>
-  			<%
-  			}
-  			%>
-			</div>
+  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboard.do?nick=${nick}')">글쓰기</button>
+  			</div>
 			  </div>
 	  	  <!-- 페이징 -->
 	  <div class="bottom_paging_box">
@@ -591,10 +567,10 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
   <!-- 로그인 정보 -->
   <div id="login_box" class="login_box" >
 	<div class="user_info" data-alarmId="">
-	  <strong onclick="location='http://localhost:8090/free/login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
+	  <strong onclick="location='http://localhost:8090/free/move_login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
 	</div>
 	<div class="user_option">
-	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">갤로그<em class="sp_loginout icon_visit"></em></a></span>
+	  <span><a href="javascript:;" onclick="location='http://localhost:8090/free/board/myboard.do'">갤로그<em class="sp_loginout icon_visit"></em></a></span>
 	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">즐겨찾기<span class="blind">리스트 보기</span><em class="sp_loginout icon_favorites hide"></em></a></span>
 	  
 	  	  

@@ -127,12 +127,12 @@
 	</div>
 	<div class="area_links"> 
 	  <ul> 
-		<li><a href="https://gall.dcinside.com/m">m.갤러리</a></li>
-		<li><a href="https://gallog.dcinside.com">갤로그</a></li>
-		<li><a href="https://dcnewsj.joins.com/">뉴스</a></li>
-		<li><a href="https://mall.dcinside.com">만두몰</a></li>
-		<li><a href="https://event.dcinside.com">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/login.do">로그인</a></li>		
+		<li><a href="#">m.갤러리</a></li>
+		<li><a href="http://localhost:8090/free/board/myboard.do">갤로그</a></li>
+		<li><a href="#">뉴스</a></li>
+		<li><a href="#">만두몰</a></li>
+		<li><a href="#">이벤트</a></li>
+		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/move_login.do">로그인</a></li>		
 	  </ul>
 	</div>
   </div>
@@ -161,10 +161,10 @@
           </li>
           <li><a href="#" class="link_gnb " url_code="mgallery">m.갤러리</a></li>
           <li><a href="http://localhost:8090/free/board/myboard.do" class="link_gnb" url_code="gallog">갤로그</a></li>
-          <li><a href="https://dcnewsj.joins.com/" class="link_gnb" url_code="dcnews">뉴스</a></li>
-          <li><a href="https://event.dcinside.com" class="link_gnb" url_code="event">이벤트</a></li>
-          <li><a href="https://mall.dcinside.com" class="link_gnb" url_code="mandumall">만두몰</a></li>
-          <li><a href="https://wiki.dcinside.com" class="link_gnb" url_code="dcwiki">디시위키</a></li>
+          <li><a href="#" class="link_gnb" url_code="dcnews">뉴스</a></li>
+          <li><a href="#" class="link_gnb" url_code="event">이벤트</a></li>
+          <li><a href="#" class="link_gnb" url_code="mandumall">만두몰</a></li>
+          <li><a href="#" class="link_gnb" url_code="dcwiki">디시위키</a></li>
         </ul>
 
         <!-- 어제 게시글,댓글 등록 -->

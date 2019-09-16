@@ -11,11 +11,7 @@
   <meta name="author" content="디시인사이드">
   <meta name="title" content="디시인사이드 갤로그">
   <meta name="description" content="디시인사이드 갤러리의 게시물을 보다 쉽게 관리할 수 있게 지원하는 서비스">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="디시인사이드 갤로그">
-  <meta property="og:description" content="디시인사이드 갤러리의 게시물을 보다 쉽게 관리할 수 있게 지원하는 서비스">
-  <meta property="og:image" content="//nstatic.dcinside.com/dc/w/images/descrip_img.png">
-  <meta property="og:url" content="//www.dcinside.com/">
+ 
   <title>디시인사이드 갤로그</title>
   <link rel="shortcut icon" href="//nstatic.dcinside.com/dc/w/images/logo_icon.ico"/>
   <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css?v=3"/>
@@ -25,11 +21,7 @@
 
 </head>
 <body>
-<%
-	String nick=(String)session.getAttribute("nick");
-	System.out.println("nick>>"+nick);
-	if(nick!=null){
-%>
+
 	<script type="text/javascript">
 	var img = new Image();
 	img.src = "";
@@ -48,15 +40,15 @@
 	    <!-- 상단 -->
 		<div class="headbox">
 		  <div class="dchead">
-			<a href="https://www.dcinside.com/" class="dcmain_go">디시인사이드 메인가기<em class="sp_img icon_dcmain_go"></em></a>
+			<a href="http://localhost:8090/free/board/menulist.do" class="dcmain_go">디시인사이드 메인가기<em class="sp_img icon_dcmain_go"></em></a>
 			<div class="area_links">
 			  <ul>
-				<li><a href="http://gall.dcinside.com">갤러리</a></li>
-				<li><a href="http://gall.dcinside.com/m">m.갤러리</a></li>
-				<li><a href="http://dcnewsj.joins.com">뉴스</a></li>
-				<li><a href="http://mall.dcinside.com">만두몰</a></li>
-				<li><a href="http://event.dcinside.com">이벤트</a></li>
-				<li><a class="btn_top_loginout" href="https://dcid.dcinside.com/join/logout.php?s_url=https%3A%2F%2Fgallog.dcinside.com%2Fmoonreia">로그아웃</a></li>			
+				<li><a href="http://localhost:8090/free/board/loginmenu.do?id=${user.id }&password=${user.password}">갤러리</a></li>
+				<li><a href="#">m.갤러리</a></li>
+				<li><a href="#">뉴스</a></li>
+				<li><a href="#">만두몰</a></li>
+				<li><a href="#">이벤트</a></li>
+				<li><a class="btn_top_loginout" href="#">로그아웃</a></li>			
 			  </ul>
 			</div>
 		  </div>
@@ -64,7 +56,7 @@
 	    <div class="top_bar">
 	      <div id="test" class="bar clear" style="background:url() repeat 0 0">
 	        <div class="galler_info">
-	          <strong class="nick_name">${nick }</strong> 님의 갤로그입니다.
+	          <strong class="nick_name">${user.nick}</strong> 님의 갤로그입니다.
 	        </div>
 	        <div class="tright_box clear">
 		        <div class="visitors_num rbox">
@@ -409,13 +401,5 @@
 	    	  </div>
 	  
 	  	</div>
-	  	<%
-			}else{
-		 %>
-	 	<script type="text/javascript">alert("로그인이 필요한 페이지 입니다.");
-	 	document.location.href="http://localhost:8090/free/board/listboard.do";</script>
-	 	<%
-		}
-	 	%>
 </body>
 </html>

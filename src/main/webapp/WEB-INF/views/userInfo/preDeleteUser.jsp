@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="//nstatic.dcinside.com/dc/w/css/common.css" />
 <link rel="stylesheet" type="text/css"
-	href="//nstatic.dcinside.com/dc/w/css/popup.css?190102" "/>
+	href="//nstatic.dcinside.com/dc/w/css/popup.css?190102"/>
 <script type="text/javascript"
 	src="//nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
 <script type="text/javascript" src="./js/member.js?190104"></script>
@@ -51,7 +51,7 @@ function checkValue()
 			<div class="dchead">
 				<!-- 로고영역 -->
 				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"> <img
+					<a href="http://localhost:8090/free/board/menulist.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png"
 						alt="디시인사이드">
 					</a>
@@ -59,12 +59,12 @@ function checkValue()
 				<!-- //로고영역 -->
 				<div class="area_links">
 					<ul>
-						<li><a href="https://gall.dcinside.com">갤러리</a></li>
-						<li><a href="https://gall.dcinside.com/m">m.갤러리</a></li>
-						<li><a href="https://gallog.dcinside.com">갤로그</a></li>
-						<li><a href="https://dcnewsj.joins.com">뉴스</a></li>
-						<li><a href="https://event.dcinside.com">이벤트</a></li>
-						<li><a href="https://mall.dcinside.com">만두몰</a></li>
+						<li><a href="http://localhost:8090/free/board/listboard.do">갤러리</a></li>
+						<li><a href="#">m.갤러리</a></li>
+						<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+						<li><a href="#">뉴스</a></li>
+						<li><a href="#">이벤트</a></li>
+						<li><a href="#">만두몰</a></li>
 					</ul>
 				</div>
 			</div>
@@ -81,16 +81,10 @@ function checkValue()
 					<section id="pagemenu">
 						<h2 class="blind">페이지 메뉴</h2>
 						<ul class="page_menu three clear">
-							<li><a
-								href="./member_modify.php?token=79ed817fb28b60863fee80fb45836a6c6550b543d8"
-								class="pmenu">개인 정보 변경</a></li>
-							<li><a
-								href="./pw_modify.php?token=79ed817fb28b60863fee80fb45836a6c6550b543d8"
-								class="pmenu">비밀번호 변경</a></li>
-							<li><a
-								href="./member_out_pw_chk.php?token=79ed817fb28b60863fee80fb45836a6c6550b543d8"
-								class="pmenu on">회원 탈퇴</a></li>
-						</ul>
+							  <li><a href="http://localhost:8090/free/userInfo01.do?id=${user.id }" class="pmenu on">개인 정보 변경</a></li>
+              <li><a href="http://localhost:8090/free/move_updatePassword.do?id=${user.id }" class="pmenu">비밀번호 변경</a></li>
+              <li><a href="http://localhost:8090/free/predelete_userInfo.do?id=${user.id }" class="pmenu">회원 탈퇴</a></li>
+            </ul>
 					</section>
 
 

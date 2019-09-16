@@ -5,12 +5,15 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.way.free.MenuService;
 import com.way.free.model.menu;
+import com.way.free.model.user;
 
 @Controller
 @RequestMapping("/board/*")
@@ -27,8 +30,5 @@ public class MenuController {
 		mav.addObject("menulist", list);// 데이터 저장
 		return mav;// mainmenu.jsp로 list가 전달된다.
 	}
-	@RequestMapping(value = "loginmenu.do",method=RequestMethod.GET)
-	public String loginmenu() throws Exception{
-		return "menu/loginMain";
-	}
+	
 }

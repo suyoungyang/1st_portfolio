@@ -105,10 +105,10 @@
 			<div class="dchead">
 				<!-- 로고영역 -->
 				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"> <img
+					<a href="http://localhost:8090/free/board/menulist.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png"
 						alt="디시인사이드">
-					</a> <a href="https://gall.dcinside.com/"> <img
+					</a> <a href="http://localhost:8090/free/board/listboard.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/tit_gallery.png"
 						alt="갤러리">
 					</a>
@@ -153,7 +153,7 @@
 						<li><a href="#">뉴스</a></li>
 						<li><a href="#">만두몰</a></li>
 						<li><a href="#">이벤트</a></li>
-						<li><a class="btn_top_loginout" href="http://localhost:8090/free/login.do">로그인</a></li>
+						<li><a class="btn_top_loginout" href="http://localhost:8090/free/move_login.do">로그인</a></li>
 					</ul>
 				</div>
 			</div>
@@ -163,28 +163,27 @@
 			<nav class="gnb clear">
 				<h2 class="blind">GNB</h2>
 				<ul class="gnb_list clear">
-					<li><a class="hover_gnb link_gnb on" href="http://localhost:8090/free/board/menulist.do">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a> <span
+					<li><a class="hover_gnb link_gnb on" href="http://localhost:8090/free/board/listboard.do">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a> <span
 						class="gnb_area" style="display: block; width: 77px; height: 12px; position: absolute; left: 0; bottom: 0;"></span>
 						<!-- 2차메뉴 -->
 						<div class="depth2" style="left: 0; display: none">
 							<!--2차메뉴 열림 : display:block -->
 							<span class="sp_img depth_bg"></span>
 							<ul class="depth2_list">
-								<li><a href="https://game.dcinside.com">게임</a></li>
-								<li><a href="https://enter.dcinside.com">연예/방송</a></li>
-								<li><a href="https://sports.dcinside.com">스포츠</a></li>
-								<li><a href="https://edu.dcinside.com">교육/금융/IT</a></li>
-								<li><a href="https://travel.dcinside.com">여행/음식/생물</a></li>
-								<li><a href="https://hobby.dcinside.com">취미/생활</a></li>
+								<li><a href="#">게임</a></li>
+								<li><a href="#">연예/방송</a></li>
+								<li><a href="#">스포츠</a></li>
+								<li><a href="#">교육/금융/IT</a></li>
+								<li><a href="#">여행/음식/생물</a></li>
+								<li><a href="#">취미/생활</a></li>
 							</ul>
 						</div> <!-- //2차메뉴 --></li>
-					<li><a href="//gall.dcinside.com/m" class="link_gnb ">m.갤러리</a></li>
-					<li><a
-						href="http://localhost:8090/free/board/myboard.do?nick=${nick }">갤로그</a></li>
-					<li><a href="https://dcnewsj.joins.com/" class="link_gnb">뉴스</a></li>
-					<li><a href="https://event.dcinside.com" class="link_gnb">이벤트</a></li>
-					<li><a href="https://mall.dcinside.com" class="link_gnb">만두몰</a></li>
-					<li><a href="https://wiki.dcinside.com" class="link_gnb">디시위키</a></li>
+					<li><a href="#" class="link_gnb ">m.갤러리</a></li>
+					<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+					<li><a href="#" class="link_gnb">뉴스</a></li>
+					<li><a href="#" class="link_gnb">이벤트</a></li>
+					<li><a href="#" class="link_gnb">만두몰</a></li>
+					<li><a href="#" class="link_gnb">디시위키</a></li>
 				</ul>
 
 				<!-- 어제 게시글,댓글 등록 -->
@@ -208,7 +207,7 @@
 					<div class="page_head clear">
 						<div class="fl clear">
 							<h2>
-								<a href="https://gall.dcinside.com/board/lists?id=hoteltvn">호텔
+								<a href="http://localhost:8090/free/board/listboard.do">호텔
 									델루나 갤러리</a>
 							</h2>
 
@@ -474,7 +473,7 @@
 		
   					</div>
 	<div class="fr">
-					<button type="button" class="btn_grey modify" onclick="goModify('https://gall.dcinside.com/board/modify/?id=hoteltvn&no=115335')">수정</button>
+					<button type="button" class="btn_grey modify" onclick="goModify('http://localhost:8090/free/board/passproc.do')">수정</button>
 							<button type="button" class="btn_grey cancle" onclick="goDelete('https://gall.dcinside.com/board/delete/?id=hoteltvn&no=115335')">삭제</button>
 											<button type="button" class="btn_blue write" onclick="goWrite('https://gall.dcinside.com/board/write/?id=hoteltvn')">글쓰기</button>
 				</div>
@@ -564,10 +563,10 @@
 					  <!-- 로그인 정보 -->
   <div id="login_box" class="login_box">
 	<div class="user_info" data-alarmId="">
-	  <strong onclick="location='http://localhost:8090/free/login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
+	  <strong onclick="location='http://localhost:8090/free/move_login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
 	</div>
 	<div class="user_option">
-	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">갤로그<em class="sp_loginout icon_visit"></em></a></span>
+	  <span><a href="javascript:;" onclick="location='http://localhost:8090/free/board/myboard.do'">갤로그<em class="sp_loginout icon_visit"></em></a></span>
 	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">즐겨찾기<span class="blind">리스트 보기</span><em class="sp_loginout icon_favorites hide"></em></a></span>
 	  
 	  	  

@@ -25,5 +25,7 @@ public interface BoardService {
 	public void increaseViewnum(int num,HttpSession session) throws Exception;
 	//07.mygallog 게시판리스트 출력
 	public List<board> myboard(String nick)throws Exception;
+	//04-1.게시판 수정시 패스워드확인
+	public void passproc(int num) throws Exception;
 	
 }

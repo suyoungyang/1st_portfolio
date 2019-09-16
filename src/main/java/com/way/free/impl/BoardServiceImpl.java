@@ -66,6 +66,11 @@ public class BoardServiceImpl implements BoardService{
 		boardDAO.updateBoard(board);
 		
 	}
+	//03-1.게시글 수정시 패스워드 확인
+	@Override
+	public void passproc(int num) throws Exception{
+		boardDAO.passproc(num);
+	}
 
 	//04.게시글 삭제
 	@Override
@@ -73,6 +78,8 @@ public class BoardServiceImpl implements BoardService{
 		boardDAO.deleteBoard(num);
 		
 	}
+	
+	//03-1.게시글 수정시 패스워드 확인
 
 	//05.게시글 전체 목록
 	@Override

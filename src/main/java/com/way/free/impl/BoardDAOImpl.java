@@ -31,6 +31,11 @@ public class BoardDAOImpl implements BoardDAO{
 	public void updateBoard(board board) throws Exception {
 		SqlSession.update("updateArticle",board);
 	}
+	//03-1.게시글 수정시 패스워드 확인
+	@Override 
+	public void passproc(int num)throws Exception{
+		SqlSession.selectOne("passproc",num);
+	}
 	//04.게시글 삭제
 	@Override
 	public void deleteBoard(int num) throws Exception {

@@ -35,19 +35,19 @@
       <div class="dchead">
         <!-- 로고영역 -->
         <h1 class="dc_logo">
-          <a href="https://www.dcinside.com/">
+          <a href="http://localhost:8090/free/board/menulist.do">
             <img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png" alt="디시인사이드">
           </a>
         </h1>
         <!-- //로고영역 -->
         <div class="area_links">
           <ul>
-            <li><a href="http://gall.dcinside.com">갤러리</a></li>
-            <li><a href="http://gall.dcinside.com/m">m.갤러리</a></li>
-            <li><a href="http://gallog.dcinside.com">갤로그</a></li>
-            <li><a href="http://dcnewsj.joins.com">뉴스</a></li>
-            <li><a href="http://event.dcinside.com">이벤트</a></li>
-            <li><a href="http://mall.dcinside.com">만두몰</a></li>
+            <li><a href="http://localhost:8090/free/board/loginmenu.do?id=${user.id }&password=${user.password}">갤러리</a></li>
+            <li><a href="#">m.갤러리</a></li>
+            <li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">만두몰</a></li>
           </ul>
         </div>
       </div>
@@ -59,9 +59,9 @@
           <section id="pagemenu">
             <h2 class="blind">페이지 메뉴</h2>
             <ul class="page_menu three clear">
-              <li><a href="userInfo01.do?id=${user.id }" class="pmenu on">개인 정보 변경</a></li>
-              <li><a href="move_updatePassword.do?id=${user.id }" class="pmenu">비밀번호 변경</a></li>
-              <li><a href="predelete_userInfo.do?id=${user.id }" class="pmenu">회원 탈퇴</a></li>
+              <li><a href="http://localhost:8090/free/userInfo01.do?id=${user.id }" class="pmenu on">개인 정보 변경</a></li>
+              <li><a href="http://localhost:8090/free/move_updatePassword.do?id=${user.id }" class="pmenu">비밀번호 변경</a></li>
+              <li><a href="http://localhost:8090/free/predelete_userInfo.do?id=${user.id }" class="pmenu">회원 탈퇴</a></li>
             </ul>
           </section>
           <section>

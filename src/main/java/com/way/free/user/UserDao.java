@@ -78,8 +78,8 @@ public class UserDao {
    //단건 조회 메소드
    public user select(String id) {
       String sql = "select * from user where id = ?";
-      user users =  jdbcTemplate.queryForObject(sql, new Object [] {id},new UserMapper());
-      return users;
+      user user =  jdbcTemplate.queryForObject(sql, new Object [] {id},new UserMapper());
+      return user;
    }
    
    //회원닉네임 수정 메소드

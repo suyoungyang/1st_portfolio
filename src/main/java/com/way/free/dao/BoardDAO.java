@@ -13,6 +13,8 @@ public interface BoardDAO {
 		public board readBoard(int num) throws Exception;
 		//03.게시글 수정
 		public void updateBoard(board board) throws Exception;
+		//03-1.게시글 수정시 패스워드 확인
+		public void passproc(int num) throws Exception;
 		//04.게시글 삭제
 		public void deleteBoard(int num) throws Exception;
 		//05.게시글 전체 목록
@@ -21,4 +23,5 @@ public interface BoardDAO {
 		public void increaseViewnum(int num) throws Exception;
 		//07.mygallog 게시판리스트 출력
 		public List<board> myboard(String nick) throws Exception;
+	
 }	
