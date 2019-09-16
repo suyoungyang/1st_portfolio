@@ -23,9 +23,12 @@
     <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/ie7.css"/>
   <![endif]-->
   <script type="text/javascript">
-   function checkValue()
+   function checkValue(user)
    {
       var form = document.user;
+      var email = form.mail.value;
+      var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+      
       if(!form.id.value){
          alert("아이디를 입력하세요.");
          return false;
@@ -45,8 +48,64 @@
       if(!form.mail.value){
          alert("메일를 입력하세요.");
          return false;
+     	 }
+  
+         
+         //아이디 유효성 검사 (영문소문자, 숫자만 허용)
+        for (var i = 0; i < form.id.value.length; i++) {
+             ch = form.id.value.charAt(i)
+             if (!(ch >= '0' && ch <= '9') && !(ch >= 'a' && ch <= 'z')) {
+                 alert("아이디는 영문 소문자, 숫자만 입력가능합니다.")
+                 form.id.focus();
+                 form.id.select();
+                 return false;
+             }
          }
-      }
+         //아이디에 공백 사용하지 않기
+         if (form.id.value.indexOf(" ") >= 0) {
+             alert("아이디에 공백을 사용할 수 없습니다.")
+             form.id.focus();
+             form.id.select()
+             return false;
+         }
+         //아이디 길이 체크 (4~12자)
+        if (form.id.value.length<5 || form.id.value.length>20) {
+             alert("아이디를 5~20자까지 입력해주세요.")
+             form.id.focus();
+             form.id.select();
+             return false;
+         }
+        
+         if (form.password.value == form.id.value) {
+             alert("아이디와 비밀번호가 같습니다.")
+             form.password.focus();
+             return false;
+         }
+         //비밀번호 길이 체크(4~8자 까지 허용)
+         if (form.password.value.length<6 || form.password.value.length>20) {
+             alert("비밀번호를 6~20자까지 입력해주세요.")
+             form.password.focus();
+             form.password.select();
+             return false;
+         }
+         
+         if (regex.test(mail) === false) {
+             alert("잘못된 이메일 형식입니다.");
+             form.mail.value=""
+             form.mail.focus();
+             return false;
+         }
+  
+         for (var i = 0; i < form.mail.value.length; i++) {
+             chm = form.mail.value.charAt(i)
+             if (!(chm >= '0' && chm <= '9') && !(chm >= 'a' && chm <= 'z')&&!(chm >= 'A' && chm <= 'Z')) {
+                 alert("이메일은 영문 대소문자, 숫자만 입력가능합니다.")
+                 form.mail.focus();
+                 form.mail.select();
+                 return false;
+             }   
+         }
+   }
    //취소버튼 클릭시 첫화면 으로 이동(url 수영이랑 맞출것!)
    //function goFirstForm() {
    //   location.href="메인화면.do"
@@ -91,7 +150,7 @@
       </div>
    </div>
 </header>    <main id="container">
-      <form:form name="user" method="POST" commandName="user" action = "add/signUp.do" onsubmit="return checkValue()">
+      <form:form name="user" method="POST" commandName="user" action = "add/signUp.do" onsubmit="return checkValue(this)">
      <input type="hidden" id="age_type" name="age_type" value="general">
      <input type="hidden" id="GET_GDI" name="GET_GDI" value="">
      <input type="hidden" id="s_url" name="s_url" value="">

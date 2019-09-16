@@ -350,7 +350,7 @@ lately_gall_init('', '', '');
 	  <strong style="cursor:pointer">${user.nick}님 환영합니다.</strong> 
 	</div>
 	<div class="user_option">
-	  <span><a href="http://localhost:8090/free/board/move_updateNick.do?id=${user.id }">회원 정보 수정</a></span>
+	  <span><a href="http://localhost:8090/free/board/preUpdateUser.do?id=${user.id }">회원 정보 수정</a></span>
 	  <span><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}&id=${user.id}">갤로그</a></span>
 	  <span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span><!-- 신규알림시 클래스 new -->
 	</div>

@@ -72,6 +72,7 @@
               <div class="con changform_box">
                 <form:form id="modifyForm1" name="submitForm1" method="post"
                         action="update_userNick.do" commandName="user">
+                        <form:hidden path="id"/>
                   <fieldset>
                      <input type="hidden" id="age_type" name="age_type" value="general">
                <input type="hidden" id="gubunDate" name="gubunDate" value="2005-09-04">

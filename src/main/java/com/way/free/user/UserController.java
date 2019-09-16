@@ -73,11 +73,23 @@ public class UserController {
       }
    }
    
+ //회원정보 수정 전 비밀번호 입력 창
+   @RequestMapping(value="/board/preUpdateUser.do", method={RequestMethod.POST,RequestMethod.GET})
+   public String movePreUpdateUser(Model model,
+         @RequestParam(value = "id", required = true) String id) {
+      model.addAttribute("user", userDao.select(id));
+         return "userInfo/preUpdateUser";
+   }
+   
    //닉네임 변경페이지  이동 요청
    @RequestMapping(value = "/board/move_updateNick.do", method = {RequestMethod.POST,RequestMethod.GET})
-   public String moveUpdate(Model model, @RequestParam(value = "id", required = true) String id) {
-      model.addAttribute("user", userDao.select(id));
-      return "userInfo/userInfo01";
+   public String moveUpdate(Model model,@ModelAttribute user user,@RequestParam(value = "id", required = true) String id,@RequestParam(value = "passwordConfirm", required = true) String passwordConfirm) {
+	   if(!passwordConfirm.equals(user.getPassword())) {
+		   return "redirect:/board/preUpdateUser.do?id="+user.getId();
+	   } else {
+		   model.addAttribute("user", userDao.select(id));
+		   return "userInfo/userInfo01";
+	   }
    }
    
    
@@ -133,7 +145,7 @@ public class UserController {
       @RequestMapping(value = "/move_deleteUser.do", method = {RequestMethod.POST,RequestMethod.GET})
       public String moveDeleteUser(Model model,@ModelAttribute user user,@RequestParam(value = "id", required = true) String id,@RequestParam(value = "passwordConfirm", required = true) String passwordConfirm) {
          if(!passwordConfirm.equals(user.getPassword())) {
-         return "redirect:/predelete_userInfo.do";
+         return "redirect:/predelete_userInfo.do?id="+user.getId();
          } else {
             model.addAttribute("user", userDao.select(id));
             return "userInfo/deleteUser"; 
