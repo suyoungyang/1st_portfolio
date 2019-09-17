@@ -1,6 +1,8 @@
 package com.way.free.user;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -57,21 +59,22 @@ public class UserController {
       return "login/login";
    }
    
-   //수정된 로그인!
-   @RequestMapping(value="/login.do", method={RequestMethod.POST,RequestMethod.GET})
+   // 아이디 패스워드 다르면 수영이가 만든 빈 스크립트 페이지로 이동할것!!!!!
+   @RequestMapping(value="/login.do", method={RequestMethod.POST})
    public String login(Model model,
-         @RequestParam(value = "id", defaultValue = "null", required = true) String id, @RequestParam(value = "password", defaultValue = "null", required = true) String password) throws Exception {
-      if (id != null && password != null) {
-         if (userDao.login(id, password) != null) {
-            model.addAttribute("user", userDao.select(id));
-            return "userInfo/userInfo01";
+         @RequestParam(value = "id", defaultValue = "null", required = false) String id, @RequestParam(value = "password", defaultValue = "null", required = false) String password) throws Exception {
+	   user user01 = userDao.select(id);
+	   	if (user01 == null) {
+	   		return "login/login";
          } else {
-            return "menu/mainmenu";
+        	 if(user01.getPassword().equals(password)) {
+        	 model.addAttribute("user", user01);
+             return "userInfo/userInfo01";
+             } else {
+            	 return "login/login";
+             }
          }
-      } else {
-         return "menu/mainmenu";
       }
-   }
    
  //회원정보 수정 전 비밀번호 입력 창
    @RequestMapping(value="/board/preUpdateUser.do", method={RequestMethod.POST,RequestMethod.GET})

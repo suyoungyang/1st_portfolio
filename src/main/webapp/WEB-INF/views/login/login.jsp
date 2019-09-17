@@ -2,14 +2,28 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function checkValue(user)
+{
+   var form = document.user;
+   
+   if(!form.id.value){
+      alert("아이디를 입력하세요.");
+      return false;
+      }
+   if(!form.password.value){
+      alert("비밀번호를 입력하세요.");
+      return false;
+      }
+}
+</script>
 </head>
 <body>
-<form method="GET" action="http://localhost:8090/free/board/loginmenu.do">
+<form method="POST" action="http://localhost:8090/free/login.do" name="user" onsubmit="return checkValue(this)">
 	<table>
 		<tr>
 			<td>아이디</td>
