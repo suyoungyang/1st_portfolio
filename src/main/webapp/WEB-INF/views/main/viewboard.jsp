@@ -466,19 +466,20 @@
 </div>
 
 					<!-- 개념글, 수정, 삭제, 글쓰기 버튼 영역-->
-			<div class="view_bottom_btnbox clear">
+<div class="view_bottom_btnbox clear">
 	<div class="fl">
 		<button type="button" class="btn_blue concept" onclick="goList('/board/lists/?id=hoteltvn')">전체글</button>
-				<button type="button" class="btn_white concept" onclick="goList('/board/lists/?id=hoteltvn&exception_mode=recommend')">개념글</button>
-		
-  					</div>
+		<button type="button" class="btn_white concept" onclick="goList('/board/lists/?id=hoteltvn&exception_mode=recommend')">개념글</button>
+	</div>
 	<div class="fr">
-					<button type="button" class="btn_grey modify" onclick="goModify('http://localhost:8090/free/board/passproc.do')">수정</button>
-							<button type="button" class="btn_grey cancle" onclick="goDelete('https://gall.dcinside.com/board/delete/?id=hoteltvn&no=115335')">삭제</button>
-											<button type="button" class="btn_blue write" onclick="goWrite('https://gall.dcinside.com/board/write/?id=hoteltvn')">글쓰기</button>
-				</div>
-</div>		<div style="text-align: center">
-		<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+		<button type="button" class="btn_grey modify" onclick="location='http://localhost:8090/free/board/changeboard.do?num=${board.num}'">수정</button>
+		<button type="button" class="btn_grey cancle" onclick="location='http://localhost:8090/free/board/changeboard.do?num=${board.num}'">삭제</button>
+		<button type="button" class="btn_blue write" onclick="location='http://localhost:8090/free/board/listboard.do'">글쓰기</button>
+	</div>
+</div>
+		
+<div style="text-align: center">
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
 <script>
   var googletag = googletag || {};
   googletag.cmd = googletag.cmd || [];

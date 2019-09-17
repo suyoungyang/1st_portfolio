@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script language='javascript' type='text/javascript'> 
+	alert('작성자가 다릅니다.');
+	history.back();
+</script>
 
-<%
-	
-%>
 </body>
 </html>
