@@ -28,8 +28,8 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	//03. 게시글수정
 	@Override
-	public void updateBoard(board board) throws Exception {
-		SqlSession.update("updateArticle",board);
+	public void updateBoard(int num) throws Exception {
+		SqlSession.update("updateArticle",num);
 	}
 	//03-1.게시글 수정시 패스워드 확인
 	@Override 
