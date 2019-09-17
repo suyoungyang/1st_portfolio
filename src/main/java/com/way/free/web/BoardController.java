@@ -28,12 +28,10 @@ import com.way.free.user.UserDao;
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	// 의존관계 주입 =>BoardServiceImpl생성
 	// IoC 의존관계 역전
 	@Inject
 	BoardService boardService;
-	private UserDao userDao;
 
 	// 01.게시글 목록
 	// gallery 모든 사용자의 board 조회요청
@@ -52,6 +50,8 @@ public class BoardController {
 		mav.setViewName("main/gallery");// 뷰를 gallery.jsp로 설정
 		mav.addObject("list", list);// 데이터 저장
 		return mav;// gallery.jsp로 list가 전달된다.
+		
+		
 	}
 
 	// 02. 게시글 작성화면
@@ -74,11 +74,21 @@ public class BoardController {
 		
 	}
 
-	// 02_02.게시글 작성처리
+	// 02_01.게시글 작성처리
 	@RequestMapping(value = "insertboard.do", method = RequestMethod.POST)
-	public String insertboard(@ModelAttribute board board) throws Exception {
+	public ModelAndView insertboard(@ModelAttribute board board,HttpServletRequest request) throws Exception {
+		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
+		ModelAndView mav = new ModelAndView();
 		boardService.insertBoard(board);
-		return "redirect:listboard.do";
+		
+		//세션연결
+		HttpSession hisession=request.getSession();
+		user user=(user)hisession.getAttribute("user");
+		mav.addObject("user", user);
+		
+		mav.setViewName("redirect:listboard.do");
+		
+		return mav;
 	}
 
 	// 03.게시글 상세내용 조회, 게시글 조회수 증가 처리
@@ -102,33 +112,69 @@ public class BoardController {
 		return mav;
 	}
 
-	// 04.게시글 수정
+	// 04.게시글 수정및 삭제 페이지 이동
 	// 폼에서 입력한 내용들을 @ModelAttribute board board로 전달됨
-	@RequestMapping(value = "updateboard.do", method = RequestMethod.GET)
-	public String updateboard(@ModelAttribute board board) throws Exception {
-		boardService.updateBoard(board);
-		return "redirect:listboard.do";
+	@RequestMapping(value = "changeboard.do", method = RequestMethod.GET)
+	public ModelAndView changeboard(@RequestParam int num,HttpServletRequest request) throws Exception {
+		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
+		ModelAndView mav = new ModelAndView();
+		board board=boardService.readBoard(num);
+		//세션연결
+		HttpSession session=request.getSession();
+		user user=(user)session.getAttribute("user");
+		mav.addObject("user", user);
+		
+		if(user!=null) {
+			if(board.getNick().equals(user.getNick())) {
+				mav.setViewName("main/Inupdateview");
+				mav.addObject("board", board);
+				return mav;
+			}else {
+				mav.setViewName("login/nouser");
+				return mav;
+			}
+			
+		}else {
+			mav.setViewName("gallery/checkpass");
+			mav.addObject("board", boardService.readBoard(num));
+			return mav;
+		}
+		
 	}
-	//04-1.게시글 수정전 비밀번호 뷰페이지
-	@RequestMapping(value="checkpass.do",method=RequestMethod.GET)
-		public ModelAndView checkpass()throws Exception{
+	//04-1.게시글 수정및 삭제 전 비밀번호 확인 페이지
+	@RequestMapping(value="updateboard.do",method=RequestMethod.GET)
+	public ModelAndView updateboard(@RequestParam int num,String password )throws Exception{
+		//ModelAndview - 모델과 뷰
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("gallery/checkpass");
+		board board=boardService.readBoard(num);
+		if(board.getPassword().equals(password)) {
+			mav.setViewName("main/updateview");
+			mav.addObject("board", boardService.readBoard(num));
+			return mav;
+		}else {
+			mav.setViewName("login/nopass");
+			return mav;
+		}
+		
+	}
+	//04-2. 게시글 수정 프로세스
+	@RequestMapping(value="update.do",method=RequestMethod.POST)
+	public ModelAndView update(@RequestParam int num)throws Exception{
+		//ModelAndview - 모델과 뷰
+		ModelAndView mav=new ModelAndView();
+		boardService.updateBoard(num);
+		mav.setViewName("redirect:listboard.do");
 		return mav;
 	}
-	// 04-1.게시글 수정시 비밀번호 확인
-	@RequestMapping(value="passproc.do",method=RequestMethod.GET)
-	public String passproc(@RequestParam int num) throws Exception{
-		boardService.passproc(num);
-		return "redirect:updateboard.do";
-	}
 	
-
 	// 05.게시글 삭제
 	@RequestMapping(value = "deleteboard.do", method = RequestMethod.GET)
-	public String deleteboard(@RequestParam int num) throws Exception {
+	public ModelAndView deleteboard(@RequestParam int num) throws Exception {
+		//ModelAndview - 모델과 뷰
+		ModelAndView mav=new ModelAndView();
 		boardService.deleteBoard(num);
-		return "redirect:listboard.do";
+		mav.setViewName("redirect:listboard.do");
+		return mav;
 	}
 
 	// 06.gallog

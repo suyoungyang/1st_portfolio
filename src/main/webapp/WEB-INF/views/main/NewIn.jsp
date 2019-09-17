@@ -8,19 +8,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<%
-	Calendar cal = Calendar.getInstance();
-	int year = cal.get(Calendar.YEAR);
-	int month = cal.get(Calendar.MONTH) + 1;
-	int day = cal.get(Calendar.DAY_OF_MONTH);
 	
-	System.out.println(year + "-" + month + "-" + day);
-	//SimpleDateFormat을 사용하여 위와 같은 형태로 표현;
-	String pattern = "yyyy-MM-dd";
-	SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-	String now = sdf.format(new Date());
-	System.out.println("<br>" + now + "<br>");
-	%>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="imagetoolbar" content="no">
@@ -460,9 +448,8 @@ gt_recomAjax('hoteltvn');
 						</tr>
 						<tr>
 							<td class="blind" colspan="2">
-							<input type="hidden" name="num" value=""/>
-							<input type="hidden" name="nick" value="${id }"/>
-							<input type="hidden" name="password" value="${password }"/>
+							<input type="hidden" name="nick" value="${user.nick }"/>
+							<input type="hidden" name="password" value="${user.password }"/>
 							<input type="hidden" name="canum" value="1" /> 
 							<input type="hidden" name="type" value="일반" />
 							<input type="hidden" name="inqu" value="0" />
