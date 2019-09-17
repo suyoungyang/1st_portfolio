@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="action" value="move_updateNick.do"/>
-    
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action = "${action }">
+<form method="GET" action="http://localhost:8090/free/board/loginmenu.do">
 	<table>
 		<tr>
 			<td>아이디</td>
@@ -21,8 +19,8 @@
 			<td>비밀번호</td>
 			<td><input type="password" name = "password"/></td>
 		</tr>
-		<tr>
-			<td><input type="submit" value="로그인"></td>
+		<tr align="center">
+			<td colspan="2"><input type="submit" value="로그인" ></td>
 		</tr>
 	</table>
 </form>

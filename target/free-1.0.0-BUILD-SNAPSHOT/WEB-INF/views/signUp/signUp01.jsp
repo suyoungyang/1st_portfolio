@@ -27,30 +27,18 @@
 	src="//nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
 <script type="text/javascript" src="./js/member.js?20180726"></script>
 <script type="text/javascript">
-	function checkValue()
-	{
-		var req = document.policyForm.personal_agree.checked;
-		var req1 = document.policyForm.service_agree.checked;
-		var num == 0;
-		 if(req == true){
-			  num = 1;
-			 }
-			 if(num==1){
-			  document.form.submit();
-			 }else{
-			  alert("개인정보 약관에 동의하셔야 합니다.");
-			 }
-			 if(req01 == true){
-				  num = 1;
-				 }
-				 if(num==1){
-				  document.form.submit();
-				 }else{
-				  alert("개인정보 약관에 동의하셔야 합니다.");
-				 } 
+	function checkValue(policyForm) {
+		var chk1 = document.policyForm.personal_agree.checked;
+		var chk2 = document.policyForm.service_agree.checked;
+		if (chk1 == "") {
+			alert("개인정보 약관에 동의하셔야 합니다.");
+			return false;
+		}
+		if (chk2 == "") {
+			alert("개인정보 약관에 동의하셔야 합니다.");
+			return false;
+		}
 	}
-
-	
 </script>
 </head>
 <body>
@@ -66,29 +54,29 @@
 			<div class="dchead">
 				<!-- 로고영역 -->
 				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"><img
+					<a href="http://localhost:8090/free/board/menulist.do"><img
 						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png"
 						alt="디시인사이드"></a> <a
-						href="https://dcid.dcinside.com/join_new/join_dcinside.php"><img
+						href="#"><img
 						src="https://nstatic.dcinside.com/dc/w/images/tit_join.png"
 						alt="회원가입"></a>
 				</h1>
 				<!-- //로고영역 -->
 				<div class="area_links">
 					<ul>
-						<li><a href="http://gall.dcinside.com">갤러리</a></li>
-						<li><a href="http://gall.dcinside.com/m">m.갤러리</a></li>
-						<li><a href="http://gallog.dcinside.com">갤로그</a></li>
-						<li><a href="http://dcnewsj.joins.com">뉴스</a></li>
-						<li><a href="http://event.dcinside.com">이벤트</a></li>
-						<li><a href="http://mall.dcinside.com">만두몰</a></li>
+						<li><a href="http://localhost:8090/free/board/listboard.do">갤러리</a></li>
+						<li><a href="#">m.갤러리</a></li>
+						<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+						<li><a href="#">뉴스</a></li>
+						<li><a href="#">이벤트</a></li>
+						<li><a href="#">만두몰</a></li>
 					</ul>
 				</div>
 			</div>
 		</header>
 		<main id="container">
 		<form name="policyForm" id="policyForm" method="post"
-			action="signUp.do">
+			action="signUp.do" onsubmit="return checkValue(this)">
 			<div class="content">
 				<article>
 					<h2 class="blind">회원가입</h2>
@@ -347,8 +335,9 @@
 								</div>
 								<div class="policy_check">
 									<span class="checkbox"> <input type="checkbox"
-										id="service_agree" value="Y"> <em class="checkmark"></em>
-										<label for="service_agree">내용을 확인하였으며, 동의합니다.</label>
+										id="service_agree" name="service_agree" value=""> <em
+										class="checkmark"></em> <label for="service_agree">내용을
+											확인하였으며, 동의합니다.</label>
 									</span>
 								</div>
 							</div>
@@ -763,8 +752,9 @@
 								</div>
 								<div class="policy_check">
 									<span class="checkbox"> <input type="checkbox"
-										id="personal_agree" value="Y"> <em class="checkmark"></em>
-										<label for="personal_agree">내용을 확인하였으며, 동의합니다.</label>
+										id="personal_agree" name="personal_agree" value=""> <em
+										class="checkmark"></em> <label for="personal_agree">내용을
+											확인하였으며, 동의합니다.</label>
 									</span>
 								</div>
 							</div>
@@ -772,8 +762,7 @@
 							<div class="btn_box clear">
 								<div class="fr">
 									<button type="submit" id="policy_agree"
-										class="btn_grey small bnt_next"
-										onclick="checkValue()">다음 </button>
+										class="btn_grey small bnt_next">다음</button>
 								</div>
 							</div>
 						</div>

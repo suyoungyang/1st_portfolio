@@ -57,7 +57,7 @@
 	</select>   
 	<!-- 04.게시글 조회수 증가 처리  -->
 	<update id="increaseViewinqu">
-		UPDATE board SET viewcnt = viewcnt+1
+		UPDATE board SET inqu = inqu+1
 		WHERE num = #{num}
 	</update>
 	<!-- 05.게시글 수정처리 -->
@@ -67,7 +67,12 @@
 			content=#{content},
 		WHERE num = #{num}
 	</update>
-    <!-- 06.게시글 삭제 처리 -->
+	<!-- 05-1.게시글 수정전 패스워드 확인 -->
+	<select id="passproc" resultType="com.way.free.model.board">
+		SELECT * FROM board
+		WEHERE num = #{num}
+	</select>    
+	<!-- 06.게시글 삭제 처리 -->
     <delete id="deleteArticle">
     	DELETE FROM board
     	WHERE num = #{num}
