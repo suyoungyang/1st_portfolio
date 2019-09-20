@@ -1,8 +1,5 @@
 package com.way.free.user;
 
-
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +18,6 @@ import com.way.free.user.UserController;
 
 @Controller
 public class UserController {
-   private static final Logger logger = LoggerFactory.getLogger(UserController.class);
    
    @Autowired
    private UserDao userDao;
@@ -62,16 +58,19 @@ public class UserController {
    // 아이디 패스워드 다르면 수영이가 만든 빈 스크립트 페이지로 이동할것!!!!!
    @RequestMapping(value="/login.do", method={RequestMethod.POST})
    public String login(Model model,
-         @RequestParam(value = "id", defaultValue = "null", required = false) String id, @RequestParam(value = "password", defaultValue = "null", required = false) String password) throws Exception {
+         @RequestParam(value = "id", defaultValue = "null", required = false) String id, @RequestParam(value = "password", defaultValue = "null", required = false) String password,HttpServletRequest request) throws Exception {
 	   user user01 = userDao.select(id);
 	   	if (user01 == null) {
-	   		return "login/login";
+	   		return "login/nouser";
          } else {
         	 if(user01.getPassword().equals(password)) {
         	 model.addAttribute("user", user01);
-             return "userInfo/userInfo01";
+        	 HttpSession session=request.getSession();
+        	 session.setAttribute("user", user01);
+        	 
+             return "menu/mainmenu2";
              } else {
-            	 return "login/login";
+            	 return "login/nopass";
              }
          }
       }

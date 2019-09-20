@@ -173,11 +173,8 @@
 				<div class="page_head clear">
 					<div class="fl clear">
 						<h2>
-							<a href="http://localhost:8090/free/board/listboard.do">호텔
-								델루나 갤러리</a>
+							<a href="http://localhost:8090/free/board/listboard.do">호텔 델루나 갤러리</a>
 						</h2>
-
-
 					</div>
 					<div class="fr gall_issuebox">
 						<button type="button" class="relate"

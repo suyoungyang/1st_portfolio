@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Calendar"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,77 +13,34 @@
 	<meta http-equiv="imagetoolbar" content="no">
 	<meta name="content-language" content="kr">
 	<meta name="google-site-verification" content="8_SyZg2Wg3LNnCmFXzETp7ld4yjZB8ny17m8QsYsLwk">
+	<meta name="author" content="디시인사이드">
+	<meta name="title" content="호텔 델루나 갤러리">
+	<meta name="description" content="국내방송2, 호텔 델루나, hoteltvn community portal dcinside">
 	<title>호텔 델루나 갤러리</title>
-	<link rel="shortcut icon" href="//nstatic.dcinside.com/dc/w/images/logo_icon.ico" />
-	<link rel="apple-touch-icon" href="//nstatic.dcinside.com/dc/m/img/dcinside_icon.png">
-	<link rel="apple-touch-icon-precomposed" href="//nstatic.dcinside.com/dc/m/img/dcinside_icon.png">
-	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css?v=1"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/common.css?v=1909061747"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/contents.css?190816"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/popup.css?ver=1908201051"/>
-	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/editor_20141223.css?v=2"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/research.css?v=12"/>
-	<link rel="manifest" href="/manifest.json">
-	<script type="text/javascript" src="//nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
-	<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/ctr_cookie.min.js"></script>
-	<!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/ie7.css"/>
-	<![endif]-->
-		<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/cross_domain.js"></script>
-	<!--[if lt IE 9]>
-	<script src="//nstatic.dcinside.com/dgn/gallery/js/jquery-1.7.2.min.js"></script>
-	<![endif]-->
-	<!--[if gte IE 9]>
-	<script src="//nstatic.dcinside.com/dgn/gallery/js/jquery-3.2.1.min.js"></script>
-	<![endif]-->
-	<!--[if !IE]> -->
-	<script src="//nstatic.dcinside.com/dgn/gallery/js/jquery-3.2.1.min.js"></script>
-	<!-- <![endif]-->
-	<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/jquery.tmpl.min.js"></script>
-	<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="/_js/jquery/jquery.matchHeight.js"></script>
-	<script type="text/javascript" src="/_js/common.js?v=190813"></script> 
-	<script type="text/javascript" src="/_js/favorite.js?v=180106"></script>
-	<script type="text/javascript" src="/_js/gallery_top.js?190513"></script>
-	<script type="text/javascript" src="/_js/user_block.js"></script>
-	<script type="text/javascript" src="/_js/crossDomainStorage.js?1"></script>
-	<script type="text/javascript" src="/_js/globalSearch.js?190513"></script>
-	<script type="text/javascript" src="/_js/fcm/app.js?2"></script>
-		<script type="text/javascript" src="/_js/navigation.js"></script>
-		
-	<script type="text/javascript">
-		document.domain = "dcinside.com";
-		var k_cnt = 0;
-		var _GALLERY_TYPE_ = "G";
-	</script>
 	
-	<link rel="stylesheet" href="" type="text/css" charset="utf-8"/>
-	<script src="https://nstatic.dcinside.com/dgn/gallery/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/_editor/js/editor_loader.js?v=180105" type="text/javascript" charset="utf-8"></script>
-<script src="/_js/dccon/dccon.js?v=190513" type="text/javascript" charset="utf-8"></script>
-<script src="/_js/headtext.js?v=181219" type="text/javascript" charset="utf-8"></script>
-	<!-- Taboola -->
-	<script type="text/javascript">
-      window._taboola = window._taboola || [];
-      _taboola.push({category:'auto'});
-      !function (e, f, u, i) {
-        if (!document.getElementById(i)){
-          e.async = 1;
-          e.src = u;
-          e.id = i;
-          f.parentNode.insertBefore(e, f);
-        }
-      }(document.createElement('script'),
-      document.getElementsByTagName('script')[0],
-      '//cdn.taboola.com/libtrc/dcinside/loader.js',
-      'tb_loader_script');
-      if(window.performance && typeof window.performance.mark == 'function')
-      {window.performance.mark('tbl_ic');}
-	</script>
-    <!-- Taboola -->
-    
-    <script src="//neon.netinsight.co.kr/persona.js"></script>
-    </head>
+	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css?v=1"/>
+	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/common.css?190716"/>
+	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/contents.css?190816"/>
+
+<!-- 게시글 작성 form -->
+	<style>
+		.input_style{
+			width:250px;
+			height:25px;
+		}
+		.title_style{
+			width:400px;
+			height:25px;
+		}
+		.textarea_style{
+			width:1000px;
+			height:300px;
+		}
+	</style>
+
+
+
+</head>
 <body>
   <!--스킵 내비게이션-->
   <div class="skip">
@@ -94,10 +56,10 @@
   <div class="dchead">
 	<!-- 로고영역 -->
 	<h1 class="dc_logo">
-	  <a href="https://www.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 		<img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png" alt="디시인사이드">
 	  </a>
-	  <a href="https://gall.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/listboard.do">
 	  	<img src="https://nstatic.dcinside.com/dc/w/images/tit_gallery.png" alt="갤러리">
 	  </a>
 	</h1>
@@ -128,11 +90,11 @@
 	<div class="area_links"> 
 	  <ul> 
 		<li><a href="#">m.갤러리</a></li>
-		<li><a href="http://localhost:8090/free/board/myboard.do?nick=${board.nick}">갤로그</a></li>
+		<li><a href="http://localhost:8090/free/board/MyGallog.do?nick=${board.nick}">갤로그</a></li>
 		<li><a href="#">뉴스</a></li>
 		<li><a href="#">만두몰</a></li>
 		<li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/move_login.do">로그인</a></li>		
+		 <li><a class="btn_top_loginout" href="">로그아웃</a></li>		
 	  </ul>
 	</div>
   </div>
@@ -149,22 +111,22 @@
             <div class="depth2" style="left:0;display:none"><!--2차메뉴 열림 : display:block -->
               <span class="sp_img depth_bg"></span>
               <ul class="depth2_list">
-                <li><a href="https://game.dcinside.com">게임</a></li>
-                <li><a href="https://enter.dcinside.com">연예/방송</a></li>
-                <li><a href="https://sports.dcinside.com">스포츠</a></li>
-                <li><a href="https://edu.dcinside.com">교육/금융/IT</a></li>
-                <li><a href="https://travel.dcinside.com">여행/음식/생물</a></li>
-                <li><a href="https://hobby.dcinside.com">취미/생활</a></li>
+                <li><a href="#">게임</a></li>
+                <li><a href="#">연예/방송</a></li>
+                <li><a href="#">스포츠</a></li>
+                <li><a href="#">교육/금융/IT</a></li>
+                <li><a href="#">여행/음식/생물</a></li>
+                <li><a href="#">취미/생활</a></li>
               </ul>
             </div>
             <!-- //2차메뉴 -->
           </li>
-          <li><a href="#">m.갤러리</a></li>
-          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${board.nick }">갤로그</a></li>
-          <li><a href="#">뉴스</a></li>
-          <li><a href="#">이벤트</a></li>
-          <li><a href="#">만두몰</a></li>
-          <li><a href="#" class="link_gnb">디시위키</a></li>
+          <li><a href="#" class="link_gnb " url_code="mgallery">m.갤러리</a></li>
+          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${board.nick }" class="link_gnb" url_code="gallog">갤로그</a></li>
+          <li><a href="#" class="link_gnb" url_code="dcnews">뉴스</a></li>
+          <li><a href="#" class="link_gnb" url_code="event">이벤트</a></li>
+          <li><a href="#" class="link_gnb" url_code="mandumall">만두몰</a></li>
+          <li><a href="#" class="link_gnb" url_code="dcwiki">디시위키</a></li>
         </ul>
 
         <!-- 어제 게시글,댓글 등록 -->
@@ -177,8 +139,9 @@
     </div>
     <!-- //GNB -->
     
-	    <main id="container" class="clear">
+	    <main  id="container">
 	<section>
+	
 	
 <!-- 갤리명 타이틀바 ~ 이용안내 -->
 
@@ -190,7 +153,7 @@
 	   
 	</div>
 		<div class="fr gall_issuebox">
-		  <button type="button" class="relate" onclick="open_relation(23436)"><span class="new" style="display:none;"><em class="blind">NEW</em><em class="sp_img icon_new"></em></span>연관 갤러리(3/5) <span class="blind">연관 갤러리 열기</span><em class="sp_img icon_relate_more"></em></button>
+		  <button type="button" class="relate" onclick="open_relation(23436)"><span class="new" style="display:none;"><em class="blind">NEW</em><em class="sp_img icon_new"></em></span>연관 갤러리(3/4) <span class="blind">연관 갤러리 열기</span><em class="sp_img icon_relate_more"></em></button>
 	  <button type="button" class="adr_copy" onclick="copy_gall_url()">갤주소 복사</button>
 	  <button type="button" class="block_setting" onclick="open_user_block()">차단설정</button>
 	  	  <button type="button" class="gall_useinfo" onclick="open_user_guide()">갤러리 이용안내</button>
@@ -460,101 +423,50 @@ gt_recomAjax('hoteltvn');
 	<button type="button" class="bnt_visit_next"><span class="blind">다음</span><em class="sp_img icon_next"></em></button>
 </div>
 
-<script type="text/javascript" src="/_js/lately_visit_gallery.js?v=20180917"></script>
-<script type="text/javascript">
-lately_gall_init('hoteltvn', '호텔 델루나', '');
-</script>	  
 	</div>
   </div>
 </article>
-	<!-- 비회원 글 수정, 삭제 비밀번호 입력-->
-	<form action="http://localhost:8090/free/board/updateboard.do" name="password_confirm" id="password_confirm" method="get" accept-charset="utf-8">
-	<article>
-		<div class="no_memberwrap" >
-			<div class="no_member_cont">
-				<h3 class="blind">비회원 글삭제,수정 </h3>
-				<div class="inner">
-				<b class="txt">비밀번호를 입력하세요.</b>
-				<input type="hidden" name="num"id="num" value="${board.num}">
-				<input class="pw_inquiry" id="password" name="password" type="password" title="비밀번호 입력">
-				<input type="hidden" id="title" name="title" value="${title}">
-					<div class="btn_box" style="width:100px;">
-						<button type="button" onclick = "javascript:history.back();" class="btn_grey small">취소</button>
-						<button type="submit" class="btn_blue small">확인</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</article>
-	</form>	<!-- //비회원 글 수정, 삭제 비밀번호 입력-->
+	<article id="write_wrap" class="clear">
+	<h2 class="blind">갤러리 글쓰기 영역</h2>
+	<form method="post" name="board" action="http://localhost:8090/free/board/delete.do">
+					<table>
+						<tr height="50px">
+							<td colspan="2" align="left"
+								style="font-size: 15px; color: grey;">제목<input
+									class="title_style" type="text" id="title" name="title" value="${board.title }"/>
+									</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="font-size: 13px;">※음란물, 차별, 비하, 혐오 및
+								초상권, 저작원 침해 게시물은 민, 형사상의 책임을 질 수 있습니다. <a href="#">[저작권법 안내]</a><a
+								href="#">[게시물 활용 안내]</a>
+							</td>
+						</tr>
+						<tr height="auto">
+							<td colspan="2"><textarea id="content"
+									class="textarea_style" name="content" id="content">${board.content }</textarea></td>
+						</tr>
+						<tr>
+							<td class="blind" colspan="2">
+							<input type="hidden" name="nick" id="nick" value="${user.nick }"/>
+							<input type="hidden" name="password" id="password" value="${user.password }"/>
+							<input type="hidden" name="num" id="num" value="${board.num}">
+							</td>
+						</tr>
+						<tr>
+						<td colspan="2">
+							<button type="submit" id="btn_write" class="btn_grey write" >삭제</button>
+							<button type="reset"  id="btn_write" class="btn_blue write">취소</button>
+							
+						</td>
+						</tr>
+					</table>
+	</form>
+</article>
 	</section>
 </main>
-    <!-- 하단 -->
+<!-- 하단 -->
     <footer class="dcfoot">
-    
-	<script type="text/javascript">
-$('footer.dcfoot').addClass('type1');
-</script>
-
- <div class="dc_all">
-   <div class="all_box">
-	 <div class="all_list"><!-- 리스트 접기 클래스: close -->
-	   <dl>
-		 <dt>게임</dt>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=leagueoflegends2">리그 오브 레전드</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=granblue">그랑블루 판타지</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists?id=battlegrounds">배틀그라운드</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=bd">검은사막</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=d_fighter_new1">던전앤파이터</a></dd>
-	   </dl>
-	   <dl>
-		 <dt>연예/방송</dt>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=blackpink">블랙핑크</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=lovelyz">러블리즈</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=kdani">강다니엘</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=bts">방탄소년단</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=twice">TWICE</a></dd>
-	   </dl>
-	   <dl>
-		 <dt>스포츠</dt>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=baseball_new8">국내야구</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=hanwhaeagles_new">한화 이글스</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=tigers_new">KIA 타이거즈</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=giants_new2">롯데 자이언츠</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=football_new6">해외축구</a></dd>
-	   </dl>
-	   <dl>
-		 <dt>교육/금융/IT</dt>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=stock_new2">주식</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=bitcoins">비트코인</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=ancheolsu">안철수</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=baduk">바둑</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=divination">역학</a></dd>
-	   </dl>
-	   <dl>
-		 <dt>여행/음식/생물</dt>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=dog">멍멍이</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=cat">야옹이</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=fish">물고기</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=alcohol">주류</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=food">기타음식</a></dd>
-	   </dl>
-	   <dl>
-		 <dt>취미/생활</dt>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=ib_new">인터넷방송</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=theaterM">연극, 뮤지컬 갤러리</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=fantasy_new">판타지</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=cartoon">카툰-연재</a></dd>
-		 <dd><a href="https://gall.dcinside.com/board/lists/?id=cartoon_s">카툰-단편</a></dd>
-	   </dl>
-	 </div>
-	 <div class="all_bottom">
-	   <span class="bottom_menu">
-		 <a class="menu_link" href="#top"><em class="sp_img icon_up"></em>맨위로</a>
-	   </span>
-	 </div>
-   </div>
- </div>	
      <div class="info_policy">
        <a href="https://www.dcinside.com/company">회사소개</a>
        <a href="https://www.dcinside.com/company#recruit">인재채용</a>
@@ -562,9 +474,7 @@ $('footer.dcfoot').addClass('type1');
        <a href="https://nstatic.dcinside.com/dc/dcad/w/index.html">광고안내</a>
        <a href="https://nstatic.dcinside.com/dc/w/policy/policy_index.html">이용약관</a>
        <a href="https://nstatic.dcinside.com/dc/w/policy/privacy_index.html"><b>개인정보처리방침</b></a>
-       <a href="https://nstatic.dcinside.com/dc/w/policy/youth_policy.html">청소년보호정책</a>
-       
-                     
+       <a href="https://nstatic.dcinside.com/dc/w/policy/youth_policy.html">청소년보호정책</a>  
      </div>
      <div class="copyright">Copyright ⓒ 1999 - 2019 dcinside. All rights reserved</div>
     </footer>

@@ -43,7 +43,7 @@
 			<div class="dchead">
 				<!-- 로고영역 -->
 				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"> <img
+					<a href="http://localhost:8090/free/board/menulist.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png"
 						alt="디시인사이드">
 					</a>
@@ -51,11 +51,12 @@
 				<!-- //로고영역 -->
 				<div class="area_links">
 					<ul>
-						<li><a href="https://gall.dcinside.com">갤러리</a></li>
-						<li><a href="https://gall.dcinside.com/m">m.갤러리</a></li>
-						<li><a href="https://gallog.dcinside.com">갤로그</a></li>
-						<li><a href="https://dcnewsj.joins.com">뉴스</a></li>
-						<li><a href="https://event.dcinside.com">이벤트</a></li>
+						<li><a href="http://localhost:8090/free/board/listboard.do">갤러리</a></li>
+						<li><a href="#">m.갤러리</a></li>
+						<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+						<li><a href="#">뉴스</a></li>
+						<li><a href="#">이벤트</a></li>
+						<li><a href="#">만두몰</a></li>
 						<li><a href="https://mall.dcinside.com">만두몰</a></li>
 					</ul>
 				</div>
