@@ -16,7 +16,7 @@ public interface BoardService {
 	//02.게시글 상세보기
 	public board readBoard(int num) throws Exception;
 	//03.게시글 수정
-	public void updateBoard(int num) throws Exception;
+	public void updateBoard(board board) throws Exception;
 	//04.게시글 삭제
 	public void deleteBoard(int num) throws Exception;
 	//05.게시글 전체 목록

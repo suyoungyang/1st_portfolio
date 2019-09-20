@@ -191,10 +191,10 @@ public class BoardController {
 		}
 	//05.게시글 수정 프로세스
 	@RequestMapping(value="update.do",method=RequestMethod.POST)
-	public ModelAndView update(@RequestParam int num)throws Exception{
+	public ModelAndView update(@ModelAttribute board board)throws Exception{
 		//ModelAndview - 모델과 뷰
 		ModelAndView mav=new ModelAndView();
-		boardService.updateBoard(num);
+		boardService.updateBoard(board);
 		mav.setViewName("redirect:listboard.do");
 		return mav;
 	}

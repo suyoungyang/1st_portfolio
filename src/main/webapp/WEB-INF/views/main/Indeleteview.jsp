@@ -428,7 +428,7 @@ gt_recomAjax('hoteltvn');
 </article>
 	<article id="write_wrap" class="clear">
 	<h2 class="blind">갤러리 글쓰기 영역</h2>
-	<form method="post" name="board" action="http://localhost:8090/free/board/delete.do">
+	<form method="post" name="board" id="board" action="http://localhost:8090/free/board/delete.do">
 					<table>
 						<tr height="50px">
 							<td colspan="2" align="left"

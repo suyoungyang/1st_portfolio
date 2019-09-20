@@ -12,7 +12,7 @@ public interface BoardDAO {
 		//02.게시글 상세보기
 		public board readBoard(int num) throws Exception;
 		//03.게시글 수정
-		public void updateBoard(int num) throws Exception;
+		public void updateBoard(board board) throws Exception;
 		//03-1.게시글 수정시 패스워드 확인
 		public void passproc(int num) throws Exception;
 		//04.게시글 삭제

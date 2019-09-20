@@ -66,7 +66,7 @@
 			nick=#{nick},
 			password=#{password},
 			title=#{title},
-			content=#{content},
+			content=#{content}
 		WHERE num = #{num}
 	</update>
 	<!-- 06.게시글 삭제 처리 -->
