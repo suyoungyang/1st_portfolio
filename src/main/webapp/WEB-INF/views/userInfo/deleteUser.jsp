@@ -79,9 +79,9 @@
           <section id="pagemenu">
             <h2 class="blind">페이지 메뉴</h2>
             <ul class="page_menu three clear">
-               <li><a href="http://localhost:8090/free/userInfo01.do?id=${user.id }" class="pmenu on">개인 정보 변경</a></li>
+               <li><a href="http://localhost:8090/free/userInfo01.do?id=${user.id }" class="pmenu">개인 정보 변경</a></li>
               <li><a href="http://localhost:8090/free/move_updatePassword.do?id=${user.id }" class="pmenu">비밀번호 변경</a></li>
-              <li><a href="http://localhost:8090/free/predelete_userInfo.do?id=${user.id }" class="pmenu">회원 탈퇴</a></li>
+              <li><a href="http://localhost:8090/free/predelete_userInfo.do?id=${user.id }" class="pmenu on">회원 탈퇴</a></li>
             </ul>
           </section>
           <!-- 체크박스 체크 안되면 탈퇴버튼 비활성화 -->

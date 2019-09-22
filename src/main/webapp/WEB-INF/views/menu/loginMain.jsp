@@ -96,7 +96,7 @@
   <div class="dchead">
 	<!-- 로고영역 -->
 	<h1 class="dc_logo">
-	  <a href="http://localhost:8090/free/board/menulist.do">
+	  <a href="http://localhost:8090/free/board/loginmenu.do?id=${user.id}">
 		<img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png" alt="디시인사이드">
 	  </a>
 	  <a href="http://localhost:8090/free/board/listboard.do">
@@ -134,7 +134,7 @@
 		<li><a href="#">뉴스</a></li>
 		<li><a href="#">만두몰</a></li>
 		<li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="#">로그아웃</a></li>		
+		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/board/logout.do">로그아웃</a></li>		
 	  </ul>
 	</div>
   </div>
