@@ -21,25 +21,33 @@
   <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css"/>
   <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/login.css"/>
   <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/common.css"/>
-  <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/popup.css?190102"/>
-<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->  
   <script type="text/javascript" src="//nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
   <script type="text/javascript" src="./js/member.js?190104"></script>
   <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/ie7.css"/>
   <![endif]-->
  <script type="text/javascript">
-	function checkValue()
-	{
-		var form = document.user;
-		if(!form.password.value){
-			alert("비밀번호를 입력하세요.");
-			return false;
-			}
-		if(form.newpassword.value != form.newpasswordcheck.value){
-			alert("비밀번호를 동일하게 입력하세요.");
-			return false;
-			}
+ function checkValue(user)
+ {
+    var form = document.user;
+    
+    if(!form.password.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+        }
+    if(!form.newpassword.value){
+        alert("변경하실 비밀번호를 입력하세요.");
+        return false;
+        }
+    if(!form.newpasswordcheck.value){
+        alert("비밀번호 확인은 필수 입니다.");
+        return false;
+        }
+     if(form.newpassword.value != form.newpasswordcheck.value){
+        alert("비밀번호를 동일하게 입력하세요.");
+        return false;
+        }
+	}
 </script>
 </head>
 <body>
@@ -72,15 +80,17 @@
         </div>
       </div>
     </header>
- <!-- <main id="container"> -->   
+<main id="container">
+<form:form method="post" action="update_password.do" name="user" commandName="user" onsubmit="return checkValue(this)">
+<form:hidden path="id"/>
       <div class="content repw">
         <article>
           <h2 class="blind">비밀번호 변경</h2>
           <section id="pagemenu">
             <h2 class="blind">페이지 메뉴</h2>
             <ul class="page_menu three clear">
-               <li><a href="http://localhost:8090/free/userInfo01.do?id=${user.id }" class="pmenu on">개인 정보 변경</a></li>
-              <li><a href="http://localhost:8090/free/move_updatePassword.do?id=${user.id }" class="pmenu">비밀번호 변경</a></li>
+               <li><a href="http://localhost:8090/free/userInfo01.do?id=${user.id }" class="pmenu">개인 정보 변경</a></li>
+              <li><a href="http://localhost:8090/free/move_updatePassword.do?id=${user.id }" class="pmenu on">비밀번호 변경</a></li>
               <li><a href="http://localhost:8090/free/predelete_userInfo.do?id=${user.id }" class="pmenu">회원 탈퇴</a></li>
             </ul>
           </section>
@@ -90,12 +100,10 @@
             </div>
             <div id="contbox" class="con_box brd">
               <!-- 비밀번호 변경 입력 -->
-              <form:form method="post" action="update_password.do" commandName="user" onsubmit="return checkValue()">
-              	<form:hidden path="id"/>
+              
               <div class="con innerbox">
                 <h4 class="tit font_red dotred">비밀번호는 주기적으로 변경하여 주시기 바랍니다.</h4>
                 <div class="info_txt">
-                  <p><em class="tip_deco_dot"></em>고객님은 비밀번호를 변경한지 <b>[19일]</b> 되었습니다.</p>
                   <p><em class="tip_deco_dot"></em>이용하는 아이디와 비밀번호는 가급적 다르게 설정해 주시기 바랍니다.</p>
                   <p><em class="tip_deco_dot"></em>비밀번호는 영문, 숫자 6~20자 조합으로 설정해 주시기 바랍니다.</p>
                   <p><em class="tip_deco_dot"></em>최소 3개월에 한번씩은 주기적으로 비밀번호를 변경해 주시기 바랍니다.</p>
@@ -110,24 +118,21 @@
                       <p class="tip_msg ok" id="pw_able" style="display:none">O 사용 가능한 비밀번호입니다.</p>
                       <p class="tip_msg error" id="pw_unable"  style="display:none">X 사용 불가능한 비밀번호입니다.</p>
                     </div>
-                    <input type="password" class="int" title="새 비밀번호 확인 입력" placeholder="새 비밀번호 확인 "  id="dc_pwc" name="newpasswordcheck" onkeypress="if(event.keyCode == 13){pwSubmit()};" maxlength="20">
-                    <div class="tip_msgbox pwc_info_msg">
-                      <p class="tip_msg" id="pwc_info">비밀번호를 다시 입력해 주세요</p>
-                      <p class="tip_msg ok" id="pwc_able"  style="display:none">O 비밀번호가 일치합니다</p>
-                      <p class="tip_msg error" id="pwc_unable" style="display:none">X 비밀번호가 일치하지 않습니다. </p>
-                    </div>
+                    <input type="password" class="int" title="새 비밀번호 확인 입력" placeholder="새 비밀번호 확인 "  id="dc_pwc" name="newpasswordcheck" maxlength="20">
+                   
                     <input type="submit" class="btn_blue small btn_wrfull" value="확인"/>
                   </div>
                 </div>
               </div>
-              </form:form>
+             
               <!-- //비밀번호 변경 입력 -->
             </div>
           </section>
 
         </article>
       </div>
-  <!-- </main> -->  
+       </form:form>
+</main>
   	    <footer class="dcfoot">
      <div class="info_policy">
        <a href="https://www.dcinside.com/company">회사소개</a>

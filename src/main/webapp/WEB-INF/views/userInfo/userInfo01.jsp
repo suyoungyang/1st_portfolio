@@ -120,7 +120,7 @@
                         <input type="text" class="int bg" title="이메일"  value="${user.mail }" id="mail" readonly >
                         <span class="deco_mail">@</span>
                         <input type="text" class="int bg" title="이메일 주소" value="${user.mail01 }" id="mail01" readonly>
-                        <button type="submit" class="btn_white small btn_change" id="email_changePop" onclick="locaion.href='http://localhost:8090/free/move_updateEmail.do?id=${user.id }'">인증 이메일 변경</button>
+                        <button type="button" class="btn_white small btn_change" id="email_changePop" onclick="location.href='http://localhost:8090/free/move_updateEmail.do?id=${user.id }'">인증 이메일 변경</button>
                       </div>
                     </div>
                   </fieldset>

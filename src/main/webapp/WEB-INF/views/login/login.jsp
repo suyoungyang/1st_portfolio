@@ -1,42 +1,121 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta name="content-language" content="kr">
+<meta name="google-site-verification"
+	content="8_SyZg2Wg3LNnCmFXzETp7ld4yjZB8ny17m8QsYsLwk">
+<meta name="author" content="µğ½ÃÀÎ»çÀÌµå">
+<meta name="title"
+	content="We are with you all the way! IT is Life! µğ½ÃÀÎ»çÀÌµå ÀÔ´Ï´Ù.">
+<meta name="description" content="µğ½ÃÀÎ»çÀÌµå ·Î±×ÀÎ">
+<title>È¸¿ø ·Î±×ÀÎ</title>
+<link rel="shortcut icon"
+	href="//nstatic.dcinside.com/dc/w/images/logo_icon.ico" />
+<link rel="stylesheet" type="text/css"
+	href="//nstatic.dcinside.com/dc/w/css/reset.css" />
+<link rel="stylesheet" type="text/css"
+	href="//nstatic.dcinside.com/dc/w/css/login.css" />
+<link rel="stylesheet" type="text/css"
+	href="//nstatic.dcinside.com/dc/w/css/common.css" />
+<link rel="stylesheet" type="text/css"
+	href="//nstatic.dcinside.com/dc/w/css/popup.css" />
+<script type="text/javascript"
+	src="https://nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/member_.js?201807191401"></script>
 <script type="text/javascript">
 function checkValue(user)
 {
    var form = document.user;
    
    if(!form.id.value){
-      alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+      alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
       return false;
       }
    if(!form.password.value){
-      alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+      alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
       return false;
       }
 }
 </script>
 </head>
 <body>
-<form method="POST" action="http://localhost:8090/free/login.do" name="user" onsubmit="return checkValue(this)">
-	<table>
-		<tr>
-			<td>ì•„ì´ë””</td>
-			<td><input type="text" name = "id"/></td>
-		</tr>
-		<tr>
-			<td>ë¹„ë°€ë²ˆí˜¸</td>
-			<td><input type="password" name = "password"/></td>
-		</tr>
-		<tr align="center">
-			<td colspan="2"><input type="submit" value="ë¡œê·¸ì¸" ></td>
-		</tr>
-	</table>
-</form>
+	<!--½ºÅµ ³»ºñ°ÔÀÌ¼Ç-->
+	<div class="skip">
+		<a href="#container"><span>º»¹® ¿µ¿ª ¹Ù·Î°¡±â</span></a>
+	</div>
+	<!-- //½ºÅµ ³»ºñ°ÔÀÌ¼Ç-->
+	<div id="top" class="width868 login_wrap">
+		<!-- »ó´Ü -->
+		<header class="dcheader bg">
+			<div class="dchead">
+				<!-- ·Î°í¿µ¿ª -->
+				<h1 class="dc_logo">
+					<a href="https://www.dcinside.com/"> <img
+						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png"
+						alt="µğ½ÃÀÎ»çÀÌµå">
+					</a> <a
+						href="https://dcid.dcinside.com/join/login.php?s_url=http%3A%2F%2Fgall.dcinside.com%2F&s_key=333"><img
+						src="https://nstatic.dcinside.com/dc/w/images/tit_login.png"
+						alt="·Î±×ÀÎ"></a>
+				</h1>
+				<!-- //·Î°í¿µ¿ª -->
+			</div>
+		</header>
+		<main id="container">
+		<div class="content login">
+			<article>
+				<h2 class="blind">·Î±×ÀÎ</h2>
+				<section>
+					<h3 class="blind">·Î±×ÀÎ Á¤º¸ ÀÔ·Â</h3>
+					<div class="con_box login_page ">
+						<div class="login_inputbox">
+							<div class="inner">
+								<form method="POST" action="http://localhost:8090/free/login.do"
+									name="user" onsubmit="return checkValue(this)">
+									<fieldset>
+										<legend class="blind">·Î±×ÀÎ</legend>
+										<div>
+											<input name="id" type="text" class="int id bg"
+												title="¾ÆÀÌµğÀÔ·Â" placeholder="¾ÆÀÌµğ" id="id" value=""
+												tabindex="2"> <input name="password" type="password"
+												class="int pw bg" title="ºñ¹Ğ¹øÈ£ÀÔ·Â" placeholder="ºñ¹Ğ¹øÈ£" id="password"
+												tabindex="3">
+										</div>
+										<button type="submit" class="btn_blue small btn_wfull">·Î±×ÀÎ</button>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+			</article>
+		</div>
+		</main>
+		<!-- ÇÏ´Ü -->
+		<footer class="dcfoot">
+			<div class="info_policy">
+				<a href="https://www.dcinside.com/company">È¸»ç¼Ò°³</a> <a
+					href="https://www.dcinside.com/company#recruit">ÀÎÀçÃ¤¿ë</a> <a
+					href="https://www.dcinside.com/company#alliance">Á¦ÈŞ¾È³»</a> <a
+					href="https://nstatic.dcinside.com/dc/dcad/w/index.html">±¤°í¾È³»</a> <a
+					href="https://nstatic.dcinside.com/dc/w/policy/policy_index.html">ÀÌ¿ë¾à°ü</a>
+				<a
+					href="https://nstatic.dcinside.com/dc/w/policy/privacy_index.html"><b>°³ÀÎÁ¤º¸Ã³¸®¹æÄ§</b></a>
+				<a href="https://nstatic.dcinside.com/dc/w/policy/youth_policy.html">Ã»¼Ò³âº¸È£Á¤Ã¥</a>
+			</div>
+			<div class="copyright">Copyright ¨Ï 1999 - 2019 dcinside. All
+				rights reserved</div>
+		</footer>
+	</div>
 </body>
 </html>
+
+
+

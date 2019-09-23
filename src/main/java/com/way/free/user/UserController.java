@@ -59,22 +59,29 @@ public class UserController {
       return "login/login";
    }
    
-   // 아이디 패스워드 다르면 수영이가 만든 빈 스크립트 페이지로 이동할것!!!!!
+   //로그인
    @RequestMapping(value="/login.do", method={RequestMethod.POST})
    public String login(Model model,
          @RequestParam(value = "id", defaultValue = "null", required = false) String id, @RequestParam(value = "password", defaultValue = "null", required = false) String password) throws Exception {
 	   user user01 = userDao.select(id);
 	   	if (user01 == null) {
-	   		return "login/login";
+	   		return "login/noId";
          } else {
         	 if(user01.getPassword().equals(password)) {
-        	 model.addAttribute("user", user01);
-             return "userInfo/userInfo01";
+        	 model.addAttribute("user", user01);        	 
+             return "menu/loginMain";
              } else {
-            	 return "login/login";
+            	 return "login/nopass";
              }
          }
       }
+   
+   //로그아웃
+	  @RequestMapping(value="/board/logout.do", method ={RequestMethod.POST,RequestMethod.GET})   
+	  public String logout(HttpSession session) {
+		  session.invalidate();
+		  return "menu/mainmenu";
+	  }
    
  //회원정보 수정 전 비밀번호 입력 창
    @RequestMapping(value="/board/preUpdateUser.do", method={RequestMethod.POST,RequestMethod.GET})
@@ -88,7 +95,7 @@ public class UserController {
    @RequestMapping(value = "/board/move_updateNick.do", method = {RequestMethod.POST,RequestMethod.GET})
    public String moveUpdate(Model model,@ModelAttribute user user,@RequestParam(value = "id", required = true) String id,@RequestParam(value = "passwordConfirm", required = true) String passwordConfirm) {
 	   if(!passwordConfirm.equals(user.getPassword())) {
-		   return "redirect:/board/preUpdateUser.do?id="+user.getId();
+		   return "login/nopass";
 	   } else {
 		   model.addAttribute("user", userDao.select(id));
 		   return "userInfo/userInfo01";
@@ -125,16 +132,23 @@ public class UserController {
       }
       
       //패스워드 변경
-      @RequestMapping(value = "/update_password.do", method = {RequestMethod.POST,RequestMethod.GET})
-      public String updatePassword(@ModelAttribute user user, @RequestParam(value="newpassword", required = true) String newpassword) {
-         if(!newpassword.equals(user.getPassword())) {
-         user.setNewpassword(newpassword);
-         userDao.updatepassword(user);
-         return "redirect:/userInfo01.do?id="+user.getId();
-         } else {
-         return "redirect:/move_updatePassword.do?id="+user.getId();
-         }
-      }
+	@RequestMapping(value = "/update_password.do", method = { RequestMethod.POST, RequestMethod.GET })
+	public String updatePassword(@ModelAttribute user user, @RequestParam(value = "id", required = true) String id,
+			@RequestParam(value = "password", required = true) String password,
+			@RequestParam(value = "newpassword", required = true) String newpassword) {
+		user user01 = userDao.select(id);
+		if (!password.equals(user01.getPassword())) {
+			return "login/nopass";
+		} else {
+			if (newpassword.equals(user01.getPassword())) {
+				return "userInfo/passwordconfirm";
+			} else {
+				user.setNewpassword(newpassword);
+				userDao.updatepassword(user);
+				return "redirect:/userInfo01.do?id=" + user.getId();
+			}
+		}
+	}
       
       //회원 삭제전 비밀번호 입력 창
       @RequestMapping(value="/predelete_userInfo.do", method={RequestMethod.POST,RequestMethod.GET})
@@ -148,7 +162,7 @@ public class UserController {
       @RequestMapping(value = "/move_deleteUser.do", method = {RequestMethod.POST,RequestMethod.GET})
       public String moveDeleteUser(Model model,@ModelAttribute user user,@RequestParam(value = "id", required = true) String id,@RequestParam(value = "passwordConfirm", required = true) String passwordConfirm) {
          if(!passwordConfirm.equals(user.getPassword())) {
-         return "redirect:/predelete_userInfo.do?id="+user.getId();
+         return "login/nopass";
          } else {
             model.addAttribute("user", userDao.select(id));
             return "userInfo/deleteUser"; 
