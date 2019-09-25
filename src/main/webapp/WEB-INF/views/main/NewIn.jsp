@@ -95,7 +95,7 @@
 		<li><a href="#">뉴스</a></li>
 		<li><a href="#">만두몰</a></li>
 		<li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="">로그아웃</a></li>		
+		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/board/logout.do">로그아웃</a></li>		
 	  </ul>
 	</div>
   </div>

@@ -112,7 +112,7 @@
 						<li><a href="#">만두몰</a></li>
 						<li><a href="#">이벤트</a></li>
 						<li><a class="btn_top_loginout"
-							href="#">로그인</a></li>
+							href="http://localhost:8090/free/move_login.do">로그인</a></li>
 					</ul>
 				</div>
 			</div>
@@ -173,11 +173,8 @@
 				<div class="page_head clear">
 					<div class="fl clear">
 						<h2>
-							<a href="http://localhost:8090/free/board/listboard.do">호텔
-								델루나 갤러리</a>
+							<a href="http://localhost:8090/free/board/listboard.do">호텔 델루나 갤러리</a>
 						</h2>
-
-
 					</div>
 					<div class="fr gall_issuebox">
 						<button type="button" class="relate"
@@ -523,7 +520,7 @@
 			<!-- 게시판 글쓰기 부분!!! -->
 			<article id="write_wrap" class="clear">
 				<h2 class="blind">갤러리 글쓰기 영역</h2>
-				<form method="post" name="board" action="http://localhost:8090/free/board/update.do">
+				<form method="POST" name="board" id="board" action="http://localhost:8090/free/board/update.do">
 					<table>
 						<tr height="50px">
 							<td width="100px" align="left"

@@ -62,8 +62,17 @@ public class BoardServiceImpl implements BoardService{
 
 	//03.게시글 수정
 	@Override
-	public void updateBoard(int num) throws Exception {
-		boardDAO.updateBoard(num);
+	public void updateBoard(board board) throws Exception {
+		String nick=board.getNick();
+		String password=board.getPassword();
+		String title=board.getTitle();
+		String content=board.getContent();
+				
+		board.setNick(nick);
+		board.setPassword(password);
+		board.setTitle(title);
+		board.setContent(content);
+		boardDAO.updateBoard(board);
 		
 	}
 	//03-1.게시글 수정시 패스워드 확인

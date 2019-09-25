@@ -1,103 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="imagetoolbar" content="no">
 	<meta name="content-language" content="kr">
 	<meta name="google-site-verification" content="8_SyZg2Wg3LNnCmFXzETp7ld4yjZB8ny17m8QsYsLwk">
+	<meta name="author" content="디시인사이드">
+	<meta name="title" content="호텔 델루나 갤러리">
+	<meta name="description" content="국내방송2, 호텔 델루나, hoteltvn community portal dcinside">
 	<title>호텔 델루나 갤러리</title>
-	<link rel="shortcut icon" href="//nstatic.dcinside.com/dc/w/images/logo_icon.ico" />
-	<link rel="apple-touch-icon" href="//nstatic.dcinside.com/dc/m/img/dcinside_icon.png">
-	<link rel="apple-touch-icon-precomposed" href="//nstatic.dcinside.com/dc/m/img/dcinside_icon.png">
 	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/reset.css?v=1"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/common.css?v=1909061747"/>
+	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/common.css?190716"/>
 	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/contents.css?190816"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/popup.css?ver=1908201051"/>
-	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/editor_20141223.css?v=2"/>
-	<link rel="stylesheet" type="text/css" href="https://nstatic.dcinside.com/dc/w/css/research.css?v=12"/>
-	<link rel="manifest" href="/manifest.json">
-	<script type="text/javascript" src="//nstatic.dcinside.com/dc/w/js/html5shiv.min.js"></script>
-	<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/ctr_cookie.min.js"></script>
-	<!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="//nstatic.dcinside.com/dc/w/css/ie7.css"/>
-	<![endif]-->
-		<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/cross_domain.js"></script>
-	<!--[if lt IE 9]>
-	<script src="//nstatic.dcinside.com/dgn/gallery/js/jquery-1.7.2.min.js"></script>
-	<![endif]-->
-	<!--[if gte IE 9]>
-	<script src="//nstatic.dcinside.com/dgn/gallery/js/jquery-3.2.1.min.js"></script>
-	<![endif]-->
-	<!--[if !IE]> -->
-	<script src="//nstatic.dcinside.com/dgn/gallery/js/jquery-3.2.1.min.js"></script>
-	<!-- <![endif]-->
-	<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/jquery.tmpl.min.js"></script>
-	<script type="text/javascript" src="//nstatic.dcinside.com/dgn/gallery/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="/_js/jquery/jquery.matchHeight.js"></script>
-	<script type="text/javascript" src="/_js/common.js?v=190813"></script> 
-	<script type="text/javascript" src="/_js/favorite.js?v=180106"></script>
-	<script type="text/javascript" src="/_js/gallery_top.js?190513"></script>
-	<script type="text/javascript" src="/_js/user_block.js"></script>
-	<script type="text/javascript" src="/_js/crossDomainStorage.js?1"></script>
-	<script type="text/javascript" src="/_js/globalSearch.js?190513"></script>
-	<script type="text/javascript" src="/_js/fcm/app.js?2"></script>
-		<script type="text/javascript" src="/_js/navigation.js"></script>
-		
-	<script type="text/javascript">
-		document.domain = "dcinside.com";
-		var k_cnt = 0;
-		var _GALLERY_TYPE_ = "G";
-	</script>
 	
-	<link rel="stylesheet" href="" type="text/css" charset="utf-8"/>
-	<script src="https://nstatic.dcinside.com/dgn/gallery/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/_editor/js/editor_loader.js?v=180105" type="text/javascript" charset="utf-8"></script>
-<script src="/_js/dccon/dccon.js?v=190513" type="text/javascript" charset="utf-8"></script>
-<script src="/_js/headtext.js?v=181219" type="text/javascript" charset="utf-8"></script>
-	<!-- Taboola -->
-	<script type="text/javascript">
-      window._taboola = window._taboola || [];
-      _taboola.push({category:'auto'});
-      !function (e, f, u, i) {
-        if (!document.getElementById(i)){
-          e.async = 1;
-          e.src = u;
-          e.id = i;
-          f.parentNode.insertBefore(e, f);
-        }
-      }(document.createElement('script'),
-      document.getElementsByTagName('script')[0],
-      '//cdn.taboola.com/libtrc/dcinside/loader.js',
-      'tb_loader_script');
-      if(window.performance && typeof window.performance.mark == 'function')
-      {window.performance.mark('tbl_ic');}
-	</script>
-    <!-- Taboola -->
-    
-    <script src="//neon.netinsight.co.kr/persona.js"></script>
-    </head>
+</head>
 <body>
-  <!--스킵 내비게이션-->
+	
+	 <!--스킵 내비게이션-->
   <div class="skip">
     <a href="#search_wrap"><span>통합검색 바로가기</span></a>
     <a href="#container"><span>본문영역 바로가기</span></a>
     <a href="#gnblist_wrap"><span>상단 메뉴 바로가기</span></a>
   </div>
   <!-- //스킵 내비게이션-->
-  <div id="top" class="dcwrap width1160">
+  <div id="top" class="dcwrap width1160 list_wrap">
     
     <!-- 상단 -->
 	<header class="dcheader">
   <div class="dchead">
 	<!-- 로고영역 -->
 	<h1 class="dc_logo">
-	  <a href="https://www.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 		<img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png" alt="디시인사이드">
 	  </a>
-	  <a href="https://gall.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 	  	<img src="https://nstatic.dcinside.com/dc/w/images/tit_gallery.png" alt="갤러리">
 	  </a>
 	</h1>
@@ -127,12 +67,12 @@
 	</div>
 	<div class="area_links"> 
 	  <ul> 
-		<li><a href="#">m.갤러리</a></li>
-		<li><a href="http://localhost:8090/free/board/myboard.do?nick=${board.nick}">갤로그</a></li>
-		<li><a href="#">뉴스</a></li>
-		<li><a href="#">만두몰</a></li>
-		<li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/move_login.do">로그인</a></li>		
+		 <li><a href="#">m.갤러리</a></li>
+		 <li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+		 <li><a href="#">뉴스</a></li>
+		 <li><a href="#">만두몰</a></li>
+		 <li><a href="#">이벤트</a></li>
+		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/board/logout.do">로그아웃</a></li>	
 	  </ul>
 	</div>
   </div>
@@ -143,27 +83,27 @@
         <h2 class="blind">GNB</h2>
         <ul class="gnb_list clear">
           <li>
-            <a class="hover_gnb link_gnb on" href="https://gall.dcinside.com" url_code="gallery">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a>
+            <a class="hover_gnb link_gnb on" href="http://localhost:8090/free/board/listboard.do" url_code="gallery">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a>
 			<span class="gnb_area" style="display:block;width:77px;height:12px;position:absolute;left:0;bottom:0;"></span>
             <!-- 2차메뉴 -->
             <div class="depth2" style="left:0;display:none"><!--2차메뉴 열림 : display:block -->
               <span class="sp_img depth_bg"></span>
               <ul class="depth2_list">
-                <li><a href="https://game.dcinside.com">게임</a></li>
-                <li><a href="https://enter.dcinside.com">연예/방송</a></li>
-                <li><a href="https://sports.dcinside.com">스포츠</a></li>
-                <li><a href="https://edu.dcinside.com">교육/금융/IT</a></li>
-                <li><a href="https://travel.dcinside.com">여행/음식/생물</a></li>
-                <li><a href="https://hobby.dcinside.com">취미/생활</a></li>
+                <li><a href="#">게임</a></li>
+                <li><a href="#">연예/방송</a></li>
+                <li><a href="#">스포츠</a></li>
+                <li><a href="#">교육/금융/IT</a></li>
+                <li><a href="#">여행/음식/생물</a></li>
+                 <li><a href="#">취미/생활</a></li>
               </ul>
             </div>
             <!-- //2차메뉴 -->
           </li>
-          <li><a href="#">m.갤러리</a></li>
-          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${board.nick }">갤로그</a></li>
-          <li><a href="#">뉴스</a></li>
-          <li><a href="#">이벤트</a></li>
-          <li><a href="#">만두몰</a></li>
+          <li><a href="#" class="link_gnb">m.갤러리</a></li>
+          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${nick }" class="link_gnb">갤로그</a></li>
+          <li><a href="#" class="link_gnb">뉴스</a></li>
+          <li><a href="#" class="link_gnb">이벤트</a></li>
+          <li><a href="#" class="link_gnb">만두몰</a></li>
           <li><a href="#" class="link_gnb">디시위키</a></li>
         </ul>
 
@@ -176,28 +116,26 @@
       </nav>
     </div>
     <!-- //GNB -->
+        <div class="wrap_inner">
     
-	    <main id="container" class="clear">
-	<section>
+	   	<main id="container" class="listwrap clear">
+    <!-- left_content -->
+	<section  class="left_content">
 	
 <!-- 갤리명 타이틀바 ~ 이용안내 -->
 
 <header>
   <div class="page_head clear">
 	<div class="fl clear">
-	  <h2><a href="http://localhost:8090/free/board/listboard.do">호텔 델루나 갤러리</a></h2>
+	  <h2><a href="https://gall.dcinside.com/board/lists?id=hoteltvn">호텔 델루나 갤러리</a></h2>
 	  	  	  
 	   
 	</div>
 		<div class="fr gall_issuebox">
-		  <button type="button" class="relate" onclick="open_relation(23436)"><span class="new" style="display:none;"><em class="blind">NEW</em><em class="sp_img icon_new"></em></span>연관 갤러리(3/5) <span class="blind">연관 갤러리 열기</span><em class="sp_img icon_relate_more"></em></button>
+		  <button type="button" class="relate" onclick="open_relation(23436)"><span class="new" style="display:none;"><em class="blind">NEW</em><em class="sp_img icon_new"></em></span>연관 갤러리(3/4) <span class="blind">연관 갤러리 열기</span><em class="sp_img icon_relate_more"></em></button>
 	  <button type="button" class="adr_copy" onclick="copy_gall_url()">갤주소 복사</button>
 	  <button type="button" class="block_setting" onclick="open_user_block()">차단설정</button>
 	  	  <button type="button" class="gall_useinfo" onclick="open_user_guide()">갤러리 이용안내</button>
-	   
-	  	  <button type="button" class="" onclick="gt_toggle_issue(this)">
-		<span class="blind">더보기</span><em class="sp_img icon_listmore"></em>
-	  </button>
 	  	</div>
 		  </div>
 </header>  
@@ -440,9 +378,6 @@ gt_recomAjax('hoteltvn');
 	<button type="button" class="" onclick="ub_remove_text(this)"><span class="blind">차단설정 단어 삭제</span><em class="sp_img icon_bword_del"></em></button>
 </li>
 </script>	  
-	  <div class="banner_box">
-	  	  </div>
-	  
 	  <!-- 최근방문 갤러리 -->
 	  <div id="visit_history" class="visit_history">
 	<h3 class="tit">최근 방문 갤러리</h3>
@@ -467,28 +402,274 @@ lately_gall_init('hoteltvn', '호텔 델루나', '');
 	</div>
   </div>
 </article>
-	<!-- 비회원 글 수정, 삭제 비밀번호 입력-->
-	<form action="http://localhost:8090/free/board/updateboard.do" name="password_confirm" id="password_confirm" method="get" accept-charset="utf-8">
 	<article>
-		<div class="no_memberwrap" >
-			<div class="no_member_cont">
-				<h3 class="blind">비회원 글삭제,수정 </h3>
-				<div class="inner">
-				<b class="txt">비밀번호를 입력하세요.</b>
-				<input type="hidden" name="num"id="num" value="${board.num}">
-				<input class="pw_inquiry" id="password" name="password" type="password" title="비밀번호 입력">
-				<input type="hidden" id="title" name="title" value="${title}">
-					<div class="btn_box" style="width:100px;">
-						<button type="button" onclick = "javascript:history.back();" class="btn_grey small">취소</button>
-						<button type="submit" class="btn_blue small">확인</button>
-					</div>
-				</div>
+		<form name="frm">
+		  	<input type="hidden" id="current_type" name="current_type" value="list">
+			<input type="hidden" id="list_url" name="list_url" value="https://gall.dcinside.com/board/lists?id=hoteltvn">
+			<input type="hidden" id="current_params" name="current_params" value="&page=1">
+			<input type="hidden" id="exception_mode" name="exception_mode" value="all">
+			<input type="hidden" id="list_num" name="list_num" value="50">
+			<input type="hidden" id="page" name="page" value="1">
+			<input type="hidden" id="sort_type" name="sort_type" value="N">
+			<input type="hidden" id="board_type" name="board_type" value="list">
+			<input type="hidden" id="search_head" name="search_head" value="">
+			<input type="hidden" id="gallery_id" name="gallery_id" value="hoteltvn">
+			<input type="hidden" id="no" name="gallery_no" value="">
+			<input type="hidden" id="s_type" name="s_type" value="">
+			<input type="hidden" id="s_keyword" name="s_keyword" value="">
+			<input type="hidden" id="e_s_n_o" name="e_s_n_o" value="3eabc219ebdd65fe3eef84e0">
+		</form>
+		
+				
+	  <!--상단 탭-->
+	  <h2 class="blind">갤러리 리스트 영역</h2>
+<div class="list_array_option clear">
+<div class="array_tab left_box">
+  <button type="button" class="on" onclick="listKindTab('all','list');return false;">전체글</button>
+  
+    <button type="button" class="" onclick="listKindTab('recommend','list');return false;">개념글</button>
+    
+    
+    <button type="button" class="" onclick="listKindTab('notice','list');return false;">공지</button>
+  <!--<button type="button" class="" onclick="listKindTab('movie','list');return false;">동영상</button>-->
+    
+</div>
+<div class="right_box">
+<div class="output_array clear" style="display:block">
+  <div class="select_box array_num">
+	<select name="numbers" id="sarray_numbers">
+	  	  <option value="30">30개</option>
+	  <option value="50">50개</option>
+	  <option value="100">100개</option>
+	  	</select>
+	<div class="select_area"><a href="#" onclick="showLayer(this, 'listSizeLayer');return false;">50개<span class="blind">페이지당 게시물 노출 옵션</span><em class="sp_img icon_option_more"></em></a></div>
+	<ul id="listSizeLayer" class="option_box" style="left:0;top:20px;display:none">
+	  	  <li><a href="javascript:listDisp(30)">30개</a></li>
+	  <li><a href="javascript:listDisp(50)">50개</a></li>
+	  <li><a href="javascript:listDisp(100)">100개</a></li>
+	  	</ul>
+  </div>
+    <div class="switch_btnbox">
+  			&nbsp;
+  			<a class="btn_write sp_img" href="http://localhost:8090/free/board/newboard.do?nick=${user.nick }"></a>	
+			<span class="blind">글쓰기</span>
+			<em class="inner"></em><em class="inner"></em><em class="inner"></em><em class="inner"></em>
+			  </div>
+</div>
+</div>
+</div>
+<!-- 갤러리 리스트 -->	  <div class="gall_listwrap list">
+		<!-- 게시판형 갤러리 리스트-->
+	    <table class="gall_list">
+		  <caption>갤러리 리스트</caption>
+		  <colgroup>
+			<col style="width:6%">
+			<col style="width:30%">
+			<col style="width:11%">
+			<col style="width:6%">
+			<col style="width:6%">
+			<col style="width:6%">
+		  </colgroup>
+		  <thead>
+			<tr>
+			  <th scope="col">번호</th>
+			  <th scope="col">제목</th>
+			  <th scope="col">글쓴이</th>
+			  <th scope="col">작성일</th>
+			  <th scope="col">조회</th>
+			  <th scope="col">추천</th>
+			</tr>
+		  </thead>
+		  	<tbody>
+		<c:forEach var="row" items="${list}">
+			<tr class="ub-content us-post">
+				<td class="gall_num" >${row.num}</td>
+				<td class="gall_tit ub-word"><a href="http://localhost:8090/free/board/viewboard.do?num=${row.num }">${row.title }</a></td>
+			  	<td class="gall_writer ub-writer">
+				<span class='nickname' title='ㅇㅇ'><em>${row.nick }</em></span></td>
+			  <td class="gall_date" >${row.date}</td>
+			  <td class="gall_count">${row.inqu }</td>
+			  <td class="gall_recommend">${row.reco}</td>
+			</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+
+	  </div>
+	  <!-- //갤러리 리스트 -->
+	  	  <div class="list_bottom_btnbox">
+	  	<div class="fl">
+        	<button type="button" class="list_bottom btn_blue" onclick="listKindTab('all','list');return false;">전체글</button>
+        	<button type="button" class="list_bottom btn_white" onclick="listKindTab('recommend','list');return false;">개념글</button>	        	
+        </div>
+	  	<div class="fr">
+  			<button type="button" id="btn_write" class="btn_blue write" onclick="window.open('http://localhost:8090/free/board/newboard.do?nick=${nick}')">글쓰기</button>
+  			</div>
+			  </div>
+	  	  <!-- 페이징 -->
+	  <div class="bottom_paging_box">
+		<em>1</em><a href="/board/lists/?id=hoteltvn&page=2">2</a><a href="/board/lists/?id=hoteltvn&page=3">3</a><a href="/board/lists/?id=hoteltvn&page=4">4</a><a href="/board/lists/?id=hoteltvn&page=5">5</a><a href="/board/lists/?id=hoteltvn&page=6">6</a><a href="/board/lists/?id=hoteltvn&page=7">7</a><a href="/board/lists/?id=hoteltvn&page=8">8</a><a href="/board/lists/?id=hoteltvn&page=9">9</a><a href="/board/lists/?id=hoteltvn&page=10">10</a><a href="/board/lists/?id=hoteltvn&page=11">11</a><a href="/board/lists/?id=hoteltvn&page=12">12</a><a href="/board/lists/?id=hoteltvn&page=13">13</a><a href="/board/lists/?id=hoteltvn&page=14">14</a><a href="/board/lists/?id=hoteltvn&page=15">15</a><a href="/board/lists/?id=hoteltvn&page=16" class="page_next">다음</a><a href="/board/lists/?id=hoteltvn&page=1110" class="page_end">끝</a>	  </div>
+	  <!-- //페이징 -->
+	  
+	  	  
+	  <!-- 갤러리 내 검색 -->
+	  <form name="frmSearch" method="post">
+		<fieldset>
+		  <legend class="blind">갤러리 내부 검색</legend>
+		  <div class="buttom_search_wrap clear">
+			<div class="select_box bottom_array fl">
+    			<select id="search_type" name="search_type">
+    			  <option value="search_all">전체</option>
+    			  <option value="search_subject">제목</option>
+    			  <option value="search_memo">내용</option>
+    			  <option value="search_name">글쓴이</option>
+    			  <option value="search_subject_memo">제목+내용</option>
+    			</select>
+    			<div class="select_area" onClick="showLayer(this, 'searchTypeLayer');return false;">
+    			  <span id="search_type_txt">전체</span><span class="blind">게시물 정렬 옵션</span>
+    			  <span class="inner"><em class="sp_img icon_option_more"></em></span>
+    			</div>
+    			<ul id="searchTypeLayer" class="option_box" style="left:-1px;top:36px;display:none">
+    			  <li onClick="javascript:searchTypeSel('search_all')">전체</li>
+    			  <li onClick="javascript:searchTypeSel('search_subject')">제목</li>
+    			  <li onClick="javascript:searchTypeSel('search_memo')">내용</li>
+    			  <li onClick="javascript:searchTypeSel('search_name')">글쓴이</li>
+    			  <li onClick="javascript:searchTypeSel('search_subject_memo')">제목+내용</li>
+    			</ul>
+		  	</div>
+			<div  class="bottom_search fl clear">
+			<div class="inner_search">
+			  <input class="in_keyword" type="text" name="search_keyword" title="검색어 입력" value="">
 			</div>
+			<button class="sp_img bnt_search" onClick="search();return false;"><span class="blind">검색</span></button>
+		  </div>
 		</div>
+		</fieldset>
+	  </form>
 	</article>
-	</form>	<!-- //비회원 글 수정, 삭제 비밀번호 입력-->
-	</section>
+  </section>
+  <script type="text/javascript">
+  if(typeof(chk_user_block) == 'function') {
+	  chk_user_block('hoteltvn');
+  }
+  </script>
+  
+  
+<script type="text/javascript" src="/_js/gallery_right.js?v=20190213"></script>
+
+<!-- right_content -->
+<section  class="right_content">
+	<h2 class="blind">오른쪽 컨텐츠 영역</h2>
+	<script type="text/javascript" src="/_js/gallery_right_login.js"></script>
+<script type="text/javascript" src="/_js/alarm_polling.js"></script>
+
+<div>
+  <!-- 로그인 정보 -->
+ <div id="login_box" class="login_box">
+	<div class="user_info" data-alarmId="">
+	  <strong style="cursor:pointer">${user.nick }님 환영합니다.</strong> 
+	</div>
+	<div class="user_option">
+		<span><a href="http://localhost:8090/free/board/preUpdateUser.do?id=${user.id }">회원 정보 수정</a></span>
+		<span><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}&id=${user.id}">갤로그</a></span>
+		<span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span>
+	</div>
+	
+	<!-- 알림 설정 -->
+	<div id="alarmConf" class="pop_wrap type3" style="right:-1px;top:79px;z-index:110;display:none;">
+	  <div class="pop_content notice_setting">
+		<div class="pop_head"><h3>알림설정</h3></div>
+		<div class="inner">
+		  <div class="set_element_box">
+			<p class="inner_txt">
+			  <span class="set_element">한줄알림</span>알림 팝업을 ON/OFF 합니다.
+			</p>
+			<div class="setting_onoff">
+			  <button type="button" class="sp_img on" onclick="alarmConfToggle(this);" data-id="popup"><span class="blind">on</span></button>
+			</div>
+		  </div>
+		  <div class="set_element_box">
+			<p class="inner_txt">
+			  <span class="set_element">댓글알림</span>내 글에 댓글이 달린 경우 알려줍니다.
+			</p>
+			<div class="setting_onoff">
+			  <button type="button" class="sp_img on" onclick="alarmConfToggle(this);" data-id="reply"><span class="blind">on</span></button>
+			</div>
+		  </div>
+		  <div class="set_element_box">
+			<p class="inner_txt">
+			  <span class="set_element">답글알림</span>내 댓글에 답글이 달린 경우 알려줍니다.
+			</p>
+			<div class="setting_onoff">
+			  <button type="button" class="sp_img on" onclick="alarmConfToggle(this);" data-id="reReply"><span class="blind">on</span></button>
+			</div>
+		  </div>
+		  <div class="set_element_box">
+			<p class="inner_txt">
+			  <span class="set_element">힛갤알림</span>힛갤이 등록된 경우 알려줍니다.
+			</p>
+			<div class="setting_onoff">
+			  <button type="button" class="sp_img on" onclick="alarmConfToggle(this);" data-id="hit"><span class="blind">on</span></button>
+			</div>
+		  </div>
+		</div>
+		<div class="btn_box">
+		  <button type="button" class="btn_grey small" onclick="alarmConfClose();">닫기</button>
+		  <button type="button" class="btn_blue small" onclick="alarmConfUpdate();">저장</button>
+		</div>
+	  </div>
+	  <button type="button" class="poply_bgblueclose" onclick="alarmConfClose();"><span class="blind">알림 설정 레이어 닫기</span><em class="sp_img icon_bgblueclose"></em></button>
+	</div>
+	<!-- //알림 설정 -->
+
+	<!-- 알림 -->
+	<div id="alarmList" class="pop_wrap type3" style="right:-1px;top:79px;display:none;">
+	  <div class="pop_content notice_listwrap">
+		<div class="pop_head clear">
+		  <h3 class="fl">알림</h3>
+		  <div class="fr">
+			<button type="button" class="btn_noti_alldel" onclick="remove_all_alarm()">전체삭제</button>
+			<button type="button" class="btn_noti_setting" onclick="alarmConf()">설정</button>
+		  </div>
+		</div>
+		
+		<ul class="notice_list"></ul>
+		
+				<script id="alarm-list-tmpl" type="text/x-jquery-tmpl">
+		{{if type == 'manager'}}
+		<li class="notice_mng">
+		  <a {{if link}}href="${link}"{{/if}} class="notice_txt"><span>${prefix} ${content}</span>
+			<span class="inner">
+			{{if document.alarm_time >= alarm_new_max}}<span class="new"><em class="blind">NEW</em><em class="sp_img icon_new"></em></span>{{/if}}
+			<button type="button" class="" onclick="remove_alarm($(this).closest('li'))"><span class="blind">알림삭제</span><em class="sp_img icon_bword_del"></em></button>
+			</span>
+		  </a>
+		</li>
+		{{else}}
+		<li>
+		  <a href="${link}" class="notice_txt">${prefix} ${content}</a>{{if document.alarm_time >= alarm_new_max}}<span class="new"><em class="blind">NEW</em><em class="sp_img icon_new"></em></span>{{/if}}
+		  <button type="button" class="" onclick="remove_alarm($(this).closest('li'))"><span class="blind">알림삭제</span><em class="sp_img icon_bword_del"></em></button>
+		</li>
+		{{/if}}
+		</script>
+		
+		<p class="empty_box" style="display:none;">새로운 알림이 없습니다.</p>
+		
+	  </div>
+	  <button type="button" class="poply_bgblueclose" onclick="alarmListClose()"><span class="blind">알림 리스트 레이어 닫기</span><em class="sp_img icon_bgblueclose"></em></button>
+	</div>
+	<!-- //알림 -->
+	
+  </div>
+  <!-- //로그인 정보 -->
+</div>
+</section>
+<script type="text/javascript">
+alarm_init();
+</script>	
 </main>
+</div>
+<!-- 하단 갤러리 리스트 -->
     <!-- 하단 -->
     <footer class="dcfoot">
     
@@ -570,5 +751,9 @@ $('footer.dcfoot').addClass('type1');
     </footer>
     <!-- //하단 -->
       </div>
+
+		
+
+
 </body>
 </html>

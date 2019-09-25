@@ -6,13 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.way.free.BoardService;
 import com.way.free.model.board;
 import com.way.free.model.user;
-import com.way.free.user.UserDao;
 
 @Controller
 @RequestMapping("/board/*")
@@ -47,11 +40,15 @@ public class BoardController {
 		user user=(user)session.getAttribute("user");
 		mav.addObject("user", user);
 		
-		mav.setViewName("main/gallery");// 뷰를 gallery.jsp로 설정
-		mav.addObject("list", list);// 데이터 저장
-		return mav;// gallery.jsp로 list가 전달된다.
-		
-		
+		if(user!=null) {
+			mav.setViewName("main/gallery2");// 뷰를 gallery.jsp로 설정
+			mav.addObject("list", list);// 데이터 저장
+			return mav;// gallery.jsp로 list가 전달된다.
+		}else {
+			mav.setViewName("main/gallery");// 뷰를 gallery.jsp로 설정
+			mav.addObject("list", list);// 데이터 저장
+			return mav;// gallery.jsp로 list가 전달된다.
+		}
 	}
 
 	// 02. 게시글 작성화면
@@ -71,7 +68,6 @@ public class BoardController {
 			mav.setViewName("main/NewNotIn");
 			return mav;// NewNotIn.jsp로 이동
 		}
-		
 	}
 
 	// 02_01.게시글 작성처리
@@ -92,8 +88,6 @@ public class BoardController {
 	}
 
 	// 03.게시글 상세내용 조회, 게시글 조회수 증가 처리
-	// @RequestParam : get/post 방식으로 전달된 변수 1개
-	// HttpSession 세션객체
 	@RequestMapping(value = "viewboard.do", method = RequestMethod.GET)
 	public ModelAndView viewboard(@RequestParam int num, HttpSession session,HttpServletRequest request) throws Exception {
 		List<board> list = boardService.listAll();
@@ -105,17 +99,25 @@ public class BoardController {
 		HttpSession hisession=request.getSession();
 		user user=(user)hisession.getAttribute("user");
 		mav.addObject("user", user);
-		// 뷰의 이름
-		mav.setViewName("main/viewboard");
-		mav.addObject("board", boardService.readBoard(num));
-		mav.addObject("list", list);// 데이터 저장
-		return mav;
+		
+		if(user!=null) {
+			// 뷰의 이름
+			mav.setViewName("main/viewboard2");
+			mav.addObject("board", boardService.readBoard(num));
+			mav.addObject("list", list);// 데이터 저장
+			return mav;
+		}else {
+			// 뷰의 이름
+			mav.setViewName("main/viewboard");
+			mav.addObject("board", boardService.readBoard(num));
+			mav.addObject("list", list);// 데이터 저장
+			return mav;
+		}
 	}
 
 	// 04.게시글 수정및 삭제 페이지 이동
-	// 폼에서 입력한 내용들을 @ModelAttribute board board로 전달됨
 	@RequestMapping(value = "changeboard.do", method = RequestMethod.GET)
-	public ModelAndView changeboard(@RequestParam int num,HttpServletRequest request) throws Exception {
+	public ModelAndView changeboard(@RequestParam int num,@RequestParam String title,HttpServletRequest request) throws Exception {
 		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 		board board=boardService.readBoard(num);
@@ -123,52 +125,82 @@ public class BoardController {
 		HttpSession session=request.getSession();
 		user user=(user)session.getAttribute("user");
 		mav.addObject("user", user);
-		
-		if(user!=null) {
-			if(board.getNick().equals(user.getNick())) {
-				mav.setViewName("main/Inupdateview");
-				mav.addObject("board", board);
-				return mav;
+		if("삭제".equals(title)) {
+			if(user!=null) {
+				if(board.getNick().equals(user.getNick())) {
+					mav.addObject("title", "삭제");
+					mav.setViewName("main/Indeleteview");
+					mav.addObject("board", board);
+					return mav;
+				}else {
+					mav.setViewName("login/nouser");
+					return mav;
+				}
 			}else {
-				mav.setViewName("login/nouser");
+				mav.setViewName("gallery/checkpass");
+				mav.addObject("title", "삭제");
+				mav.addObject("board", boardService.readBoard(num));
 				return mav;
 			}
 			
 		}else {
-			mav.setViewName("gallery/checkpass");
-			mav.addObject("board", boardService.readBoard(num));
-			return mav;
+			if(user!=null) {
+				if(board.getNick().equals(user.getNick())) {
+					mav.setViewName("main/Inupdateview");
+					mav.addObject("title", "수정");
+					mav.addObject("board", board);
+					return mav;
+				}else {
+					mav.setViewName("login/nouser");
+					return mav;
+				}
+			}else {
+				mav.setViewName("gallery/checkpass");
+				mav.addObject("title", "수정");
+				mav.addObject("board", boardService.readBoard(num));
+				return mav;
+			}
 		}
+		
 		
 	}
 	//04-1.게시글 수정및 삭제 전 비밀번호 확인 페이지
-	@RequestMapping(value="updateboard.do",method=RequestMethod.GET)
-	public ModelAndView updateboard(@RequestParam int num,String password )throws Exception{
-		//ModelAndview - 모델과 뷰
-		ModelAndView mav=new ModelAndView();
-		board board=boardService.readBoard(num);
-		if(board.getPassword().equals(password)) {
-			mav.setViewName("main/updateview");
-			mav.addObject("board", boardService.readBoard(num));
-			return mav;
-		}else {
-			mav.setViewName("login/nopass");
-			return mav;
+		@RequestMapping(value="updateboard.do",method=RequestMethod.GET)
+		public ModelAndView updateboard(@RequestParam String title,@RequestParam int num,String password )throws Exception{
+			//ModelAndview - 모델과 뷰
+			ModelAndView mav=new ModelAndView();
+			board board=boardService.readBoard(num);
+			
+			if(board.getPassword().equals(password)) {
+				if("수정".equals(title)) {
+					mav.setViewName("main/updateview");
+					mav.addObject("board", boardService.readBoard(num));
+					mav.addObject("title", title);
+					return mav;
+				}else {
+					mav.setViewName("main/deleteview");
+					mav.addObject("title", title);
+					mav.addObject("board", boardService.readBoard(num));
+					return mav;
+				}
+			}else {
+				mav.setViewName("login/nopass");
+				return mav;
+			}
+			
 		}
-		
-	}
-	//04-2. 게시글 수정 프로세스
+	//05.게시글 수정 프로세스
 	@RequestMapping(value="update.do",method=RequestMethod.POST)
-	public ModelAndView update(@RequestParam int num)throws Exception{
+	public ModelAndView update(@ModelAttribute board board)throws Exception{
 		//ModelAndview - 모델과 뷰
 		ModelAndView mav=new ModelAndView();
-		boardService.updateBoard(num);
+		boardService.updateBoard(board);
 		mav.setViewName("redirect:listboard.do");
 		return mav;
 	}
 	
-	// 05.게시글 삭제
-	@RequestMapping(value = "deleteboard.do", method = RequestMethod.GET)
+	// 05.게시글 삭제 프로세스
+	@RequestMapping(value = "delete.do", method = RequestMethod.POST)
 	public ModelAndView deleteboard(@RequestParam int num) throws Exception {
 		//ModelAndview - 모델과 뷰
 		ModelAndView mav=new ModelAndView();
@@ -177,14 +209,12 @@ public class BoardController {
 		return mav;
 	}
 
-	// 06.gallog
+	// 06.gallog 페이지 출력
 	@RequestMapping(value="myboard.do",method=RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView myboard(@RequestParam(value = "nick", required = false, defaultValue = "null") String nick,HttpServletRequest request) throws Exception{
 		//ModelAndview - 모델과 뷰
 		ModelAndView mav=new ModelAndView();
-		
-		
 		if("null".contentEquals(nick)) {
 			System.out.println("nick>>>"+nick);
 			mav.setViewName("login/plzlogin");
@@ -203,21 +233,4 @@ public class BoardController {
 		
 	}
 	
-	//07.gallery 상세페이지
-	@RequestMapping(value="readboard.do",method=RequestMethod.GET)
-	public ModelAndView readboard(@RequestParam int num,HttpServletRequest request) throws Exception{
-		ModelAndView mav=new ModelAndView();
-		//세션연결
-		HttpSession session=request.getSession();
-		user user=(user)session.getAttribute("user");
-		mav.addObject("user", user);
-		
-		board board=boardService.readBoard(num);
-	
-		mav.setViewName("main/viewboard");
-		mav.addObject("view", board);
-		return mav;
-	}
-	
-
 }

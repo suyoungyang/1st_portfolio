@@ -62,17 +62,20 @@ public class UserController {
    //로그인
    @RequestMapping(value="/login.do", method={RequestMethod.POST})
    public String login(Model model,
-         @RequestParam(value = "id", defaultValue = "null", required = false) String id, @RequestParam(value = "password", defaultValue = "null", required = false) String password) throws Exception {
+         @RequestParam(value = "id", defaultValue = "null", required = false) String id, @RequestParam(value = "password", defaultValue = "null", required = false) String password,HttpServletRequest request) throws Exception {
 	   user user01 = userDao.select(id);
 	   	if (user01 == null) {
 	   		return "login/noId";
          } else {
         	 if(user01.getPassword().equals(password)) {
-        	 model.addAttribute("user", user01);        	 
-             return "menu/loginMain";
-             } else {
-            	 return "login/nopass";
-             }
+            	 model.addAttribute("user", user01);
+            	 HttpSession session=request.getSession();
+            	 session.setAttribute("user", user01);
+            	 
+                 return "menu/mainmenu2";
+                 } else {
+                	 return "login/nopass";
+                 }
          }
       }
    
@@ -180,7 +183,7 @@ public class UserController {
     	  HttpSession session=request.getSession();
     	  session.setAttribute("user", userDao.select(id));
     	  model.addAttribute("user", userDao.select(id));
-  		return "menu/loginMain";
+  		return "menu/mainmenu2";
   	}
       
       

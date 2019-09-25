@@ -428,7 +428,7 @@ gt_recomAjax('hoteltvn');
 </article>
 	<article id="write_wrap" class="clear">
 	<h2 class="blind">갤러리 글쓰기 영역</h2>
-	<form method="post" name="board" action="http://localhost:8090/free/board/update.do">
+	<form method="post" name="board" id="board" action="http://localhost:8090/free/board/delete.do">
 					<table>
 						<tr height="50px">
 							<td colspan="2" align="left"
@@ -455,7 +455,7 @@ gt_recomAjax('hoteltvn');
 						</tr>
 						<tr>
 						<td colspan="2">
-							<button type="submit" id="btn_write" class="btn_grey write" >수정</button>
+							<button type="submit" id="btn_write" class="btn_grey write" >삭제</button>
 							<button type="reset"  id="btn_write" class="btn_blue write">취소</button>
 							
 						</td>

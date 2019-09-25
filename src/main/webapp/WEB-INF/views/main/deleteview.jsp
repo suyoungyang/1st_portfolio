@@ -112,7 +112,7 @@
 						<li><a href="#">만두몰</a></li>
 						<li><a href="#">이벤트</a></li>
 						<li><a class="btn_top_loginout"
-							href="http://localhost:8090/free/move_login.do">로그인</a></li>
+							href="#">로그인</a></li>
 					</ul>
 				</div>
 			</div>
@@ -523,20 +523,20 @@
 			<!-- 게시판 글쓰기 부분!!! -->
 			<article id="write_wrap" class="clear">
 				<h2 class="blind">갤러리 글쓰기 영역</h2>
-				<form method="POST" name="board" action="http://localhost:8090/free/board/insertboard.do">
+				<form method="post" name="board" action="http://localhost:8090/free/board/delete.do">
 					<table>
 						<tr height="50px">
 							<td width="100px" align="left"
 								style="font-size: 15px; color: grey;">닉네임<input
-								class="input_style" type="text" name="nick" id="nick" /></td>
+								class="input_style" type="text" name="nick" id="nick" value="${board.nick }"></td>
 							<td width="100px" align="left"
 								style="font-size: 15px; color: grey;">비밀번호<input
-								class="input_style" type="text"name="password" id="password" ></td>
+								class="input_style" type="text"name="password" id="password" value="${board.password }"></td>
 						</tr>
 						<tr height="50px">
 							<td colspan="2" align="left"
 								style="font-size: 15px; color: grey;">제목<input
-									class="title_style" type="text" id="title" name="title" /></td>
+									class="title_style" type="text" id="title" name="title" value="${board.title }"/></td>
 						</tr>
 						<tr>
 							<td colspan="2" style="font-size: 13px;">※쉬운 비밀번호를 입력하면 타인의
@@ -550,25 +550,18 @@
 						</tr>
 						<tr height="auto">
 							<td colspan="2"><textarea id="content"
-									class="textarea_style" name="content" id="content"></textarea></td>
+									class="textarea_style" name="content" id="content" >${board.content }</textarea></td>
 						</tr>
 						<tr>
-							<td class="blind" colspan="2">
-								<input type="hidden" name="canum" value="1" />
-								<input type="hidden" name="type" value="일반" />
-								<input type="hidden" name="inqu" value="0" />
-								<input type="hidden" name="reco" value="0"/>
-								<input type="hidden" name="appro" value="모바일" />
-								<input type="hidden" name="concept" value="0" />
-								<input type="hidden" name="nonreco" value="0" />
-								<input type="hidden" name="hitnum" value="0" /> 
-								<input type="hidden" name="repnum" value="0" />
+							<td>
+							<input type="hidden" name="num" id="num" value="${board.num}">
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2"><button type="reset" id="btn_write"
-									class="btn_grey write" >취소</button>
-							<button type="submit"  id="btn_write" class="btn_blue write">등록</button></td>
+							<td colspan="2">
+							<button type="submit" id="btn_write" class="btn_grey write">삭제</button>
+							<button type="reset" id="btn_write" class="btn_blue write">취소</button>
+							</td>
 						</tr>
 					</table>
 				</form>

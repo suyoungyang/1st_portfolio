@@ -80,8 +80,6 @@
     <script src="//neon.netinsight.co.kr/persona.js"></script>
     </head>
 <body>
-
-	
   <!--스킵 내비게이션-->
   <div class="skip">
     <a href="#search_wrap"><span>통합검색 바로가기</span></a>
@@ -96,7 +94,7 @@
   <div class="dchead">
 	<!-- 로고영역 -->
 	<h1 class="dc_logo">
-	  <a href="http://localhost:8090/free/board/loginmenu.do?id=${user.id}">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 		<img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png" alt="디시인사이드">
 	  </a>
 	  <a href="http://localhost:8090/free/board/listboard.do">
@@ -130,11 +128,11 @@
 	<div class="area_links"> 
 	  <ul> 
 		<li><a href="#">m.갤러리</a></li>
-		<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}">갤로그</a></li>
+		<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
 		<li><a href="#">뉴스</a></li>
 		<li><a href="#">만두몰</a></li>
 		<li><a href="#">이벤트</a></li>
-		 <li><a class="btn_top_loginout" href="http://localhost:8090/free/board/logout.do">로그아웃</a></li>		
+		<li><a class="btn_top_loginout" href="http://localhost:8090/free/board/logout.do">로그아웃</a></li>	
 	  </ul>
 	</div>
   </div>
@@ -151,18 +149,18 @@
             <div class="depth2" style="left:0;display:none"><!--2차메뉴 열림 : display:block -->
               <span class="sp_img depth_bg"></span>
               <ul class="depth2_list">
-                <li><a href="#">게임</a></li>
-                <li><a href="#">연예/방송</a></li>
-                <li><a href="#">스포츠</a></li>
-                <li><a href="#">교육/금융/IT</a></li>
-                <li><a href="#">여행/음식/생물</a></li>
-                <li><a href="#">취미/생활</a></li>
+                <li><a href="https://game.dcinside.com">게임</a></li>
+                <li><a href="https://enter.dcinside.com">연예/방송</a></li>
+                <li><a href="https://sports.dcinside.com">스포츠</a></li>
+                <li><a href="https://edu.dcinside.com">교육/금융/IT</a></li>
+                <li><a href="https://travel.dcinside.com">여행/음식/생물</a></li>
+                <li><a href="https://hobby.dcinside.com">취미/생활</a></li>
               </ul>
             </div>
             <!-- //2차메뉴 -->
           </li>
           <li><a href="#" class="link_gnb " url_code="mgallery">m.갤러리</a></li>
-          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}" class="link_gnb" url_code="gallog">갤로그</a></li>
+          <li><a href="http://localhost:8090/free/board/myboard.do" class="link_gnb" url_code="gallog">갤로그</a></li>
           <li><a href="#" class="link_gnb" url_code="dcnews">뉴스</a></li>
           <li><a href="#" class="link_gnb" url_code="event">이벤트</a></li>
           <li><a href="#" class="link_gnb" url_code="mandumall">만두몰</a></li>
@@ -344,15 +342,14 @@ lately_gall_init('', '', '');
 
 <div>
   <!-- 로그인 정보 -->
- 
   <div id="login_box" class="login_box">
 	<div class="user_info" data-alarmId="">
-	  <strong style="cursor:pointer">${user.nick}님 환영합니다.</strong> 
+	  <strong style="cursor:pointer">${user.nick }님 환영합니다.</strong> 
 	</div>
 	<div class="user_option">
-	  <span><a href="http://localhost:8090/free/board/preUpdateUser.do?id=${user.id }">회원 정보 수정</a></span>
-	  <span><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}&id=${user.id}">갤로그</a></span>
-	  <span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span><!-- 신규알림시 클래스 new -->
+		<span><a href="http://localhost:8090/free/board/preUpdateUser.do?id=${user.id }">회원 정보 수정</a></span>
+		<span><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}&id=${user.id}">갤로그</a></span>
+		<span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span>
 	</div>
 	
 	<!-- 즐겨찾기 리스트 레이어 팝업 -->

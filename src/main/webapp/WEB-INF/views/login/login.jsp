@@ -57,11 +57,11 @@ function checkValue(user)
 			<div class="dchead">
 				<!-- 로고영역 -->
 				<h1 class="dc_logo">
-					<a href="https://www.dcinside.com/"> <img
+					<a href="http://localhost:8090/free/board/menulist.do"> <img
 						src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png"
 						alt="디시인사이드">
 					</a> <a
-						href="https://dcid.dcinside.com/join/login.php?s_url=http%3A%2F%2Fgall.dcinside.com%2F&s_key=333"><img
+						href="http://localhost:8090/free/move_login.do"><img
 						src="https://nstatic.dcinside.com/dc/w/images/tit_login.png"
 						alt="로그인"></a>
 				</h1>
@@ -89,6 +89,7 @@ function checkValue(user)
 												tabindex="3">
 										</div>
 										<button type="submit" class="btn_blue small btn_wfull">로그인</button>
+										<button type="submit" class="btn_blue small btn_wfull" onClick="location='http://localhost:8090/free/agreementPage.do'" >회원가입</button>
 									</fieldset>
 								</form>
 							</div>

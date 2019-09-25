@@ -94,10 +94,10 @@
   <div class="dchead">
 	<!-- 로고영역 -->
 	<h1 class="dc_logo">
-	  <a href="https://www.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/menulist.do">
 		<img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo.png" alt="디시인사이드">
 	  </a>
-	  <a href="https://gall.dcinside.com/">
+	  <a href="http://localhost:8090/free/board/listboard.do">
 	  	<img src="https://nstatic.dcinside.com/dc/w/images/tit_gallery.png" alt="갤러리">
 	  </a>
 	</h1>
@@ -128,7 +128,7 @@
 	<div class="area_links"> 
 	  <ul> 
 		<li><a href="#">m.갤러리</a></li>
-		<li><a href="http://localhost:8090/free/board/myboard.do">갤로그</a></li>
+		<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
 		<li><a href="#">뉴스</a></li>
 		<li><a href="#">만두몰</a></li>
 		<li><a href="#">이벤트</a></li>
@@ -143,7 +143,7 @@
         <h2 class="blind">GNB</h2>
         <ul class="gnb_list clear">
           <li>
-            <a class="hover_gnb link_gnb on" href="https://gall.dcinside.com" url_code="gallery">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a>
+            <a class="hover_gnb link_gnb on" href="http://localhost:8090/free/board/listboard.do" url_code="gallery">갤러리<em class="sp_img icon_depmore hover_gnb"></em></a>
 			<span class="gnb_area" style="display:block;width:77px;height:12px;position:absolute;left:0;bottom:0;"></span>
             <!-- 2차메뉴 -->
             <div class="depth2" style="left:0;display:none"><!--2차메뉴 열림 : display:block -->
@@ -160,7 +160,7 @@
             <!-- //2차메뉴 -->
           </li>
           <li><a href="#" class="link_gnb " url_code="mgallery">m.갤러리</a></li>
-          <li><a href="http://localhost:8090/free/board/myboard.do" class="link_gnb" url_code="gallog">갤로그</a></li>
+          <li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }" class="link_gnb" url_code="gallog">갤로그</a></li>
           <li><a href="#" class="link_gnb" url_code="dcnews">뉴스</a></li>
           <li><a href="#" class="link_gnb" url_code="event">이벤트</a></li>
           <li><a href="#" class="link_gnb" url_code="mandumall">만두몰</a></li>
@@ -348,7 +348,7 @@ lately_gall_init('', '', '');
 	</div>
 	<div class="user_option">
 	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">갤로그<em class="sp_loginout icon_visit"></em></a></span>
-	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">즐겨찾기<span class="blind">리스트 보기</span><em class="sp_loginout icon_favorites hide"></em></a></span>
+	  <span><a href="http://localhost:8090/free/agreementPage.do" >회원가입</a></span>
 	  
 	  	    
 	  <span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span><!-- 신규알림시 클래스 new -->

@@ -49,11 +49,9 @@
 				<!-- //로고영역 -->
 				<div class="area_links">
 					<ul>
-						<li><a
-							href="http://localhost:8090/free/board/loginmenu.do?id=${user.id }&password=${user.password}">갤러리</a></li>
+						<li><a href="http://localhost:8090/free/board/loginmenu.do?id=${user.id }&password=${user.password}">갤러리</a></li>
 						<li><a href="#">m.갤러리</a></li>
-						<li><a
-							href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
+						<li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">갤로그</a></li>
 						<li><a href="#">뉴스</a></li>
 						<li><a href="#">이벤트</a></li>
 						<li><a href="#">만두몰</a></li>

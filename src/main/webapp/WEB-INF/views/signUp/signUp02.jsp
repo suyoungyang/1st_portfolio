@@ -135,7 +135,7 @@
       <!-- 로고영역 -->
       <h1 class="dc_logo">
          <a href="http://localhost:8090/free/board/menulist.do"><img src="https://nstatic.dcinside.com/dc/w/images/dcin_logo2.png" alt="디시인사이드"></a>
-             <a href="#"><img src="https://nstatic.dcinside.com/dc/w/images/tit_join.png" alt="회원가입"></a>
+             <a href="http://localhost:8090/free/agreementPage.do"><img src="https://nstatic.dcinside.com/dc/w/images/tit_join.png" alt="회원가입"></a>
       </h1>
       <!-- //로고영역 -->
       <div class="area_links">

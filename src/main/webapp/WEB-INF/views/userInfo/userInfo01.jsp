@@ -42,7 +42,7 @@
         <!-- //·Î°í¿µ¿ª -->
         <div class="area_links">
           <ul>
-            <li><a href="http://localhost:8090/free/board/loginmenu.do?id=${user.id }&password=${user.password}">°¶·¯¸®</a></li>
+            <li><a href="http://localhost:8090/free/board/listboard.do">°¶·¯¸®</a></li>
             <li><a href="#">m.°¶·¯¸®</a></li>
             <li><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick }">°¶·Î±×</a></li>
             <li><a href="#">´º½º</a></li>

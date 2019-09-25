@@ -153,7 +153,7 @@
 						<li><a href="#">뉴스</a></li>
 						<li><a href="#">만두몰</a></li>
 						<li><a href="#">이벤트</a></li>
-						<li><a class="btn_top_loginout" href="http://localhost:8090/free/move_login.do">로그인</a></li>
+						<li><a class="btn_top_loginout" href="#">로그아웃</a></li>
 					</ul>
 				</div>
 			</div>
@@ -564,14 +564,12 @@
 					  <!-- 로그인 정보 -->
   <div id="login_box" class="login_box">
 	<div class="user_info" data-alarmId="">
-	  <strong onclick="location='http://localhost:8090/free/move_login.do'" style="cursor:pointer">로그인을 해 주시기 바랍니다.</strong> 
+	  <strong style="cursor:pointer">${user.nick }님 환영합니다.</strong> 
 	</div>
 	<div class="user_option">
-	  <span><a href="javascript:;" onclick="location='http://localhost:8090/free/board/myboard.do'">갤로그<em class="sp_loginout icon_visit"></em></a></span>
-	  <span><a href="javascript:;" onclick="alert('로그인이 필요합니다.')">즐겨찾기<span class="blind">리스트 보기</span><em class="sp_loginout icon_favorites hide"></em></a></span>
-	  
-	  	  
-	  <span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span><!-- 신규알림시 클래스 new -->
+		<span><a href="http://localhost:8090/free/board/preUpdateUser.do?id=${user.id }">회원 정보 수정</a></span>
+		<span><a href="http://localhost:8090/free/board/myboard.do?nick=${user.nick}&id=${user.id}">갤로그</a></span>
+		<span><a class="" href="javascript:;" onclick="alarmList($('.icon_noti', this), 'new')"><em class="sp_loginout icon_noti "></em>알림</a></span>
 	</div>
 	
 	<!-- 즐겨찾기 리스트 레이어 팝업 -->

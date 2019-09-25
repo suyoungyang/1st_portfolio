@@ -3,8 +3,6 @@ package com.way.free.impl;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -28,8 +26,8 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	//03. 게시글수정
 	@Override
-	public void updateBoard(int num) throws Exception {
-		SqlSession.update("updateArticle",num);
+	public void updateBoard(board board) throws Exception {
+		SqlSession.update("updateArticle",board);
 	}
 	//03-1.게시글 수정시 패스워드 확인
 	@Override 
