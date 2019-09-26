@@ -6,11 +6,11 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
-import com.way.free.MenuService;
 import com.way.free.dao.BoardDAO;
 import com.way.free.dao.MenuDAO;
 import com.way.free.model.board;
 import com.way.free.model.menu;
+import com.way.free.service.MenuService;
 
 @Repository
 public class MenuServiceImpl implements MenuService{

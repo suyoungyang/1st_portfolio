@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.way.free.MenuService;
 import com.way.free.model.menu;
 import com.way.free.model.user;
+import com.way.free.service.MenuService;
 
 @Controller
 @RequestMapping("/board/*")

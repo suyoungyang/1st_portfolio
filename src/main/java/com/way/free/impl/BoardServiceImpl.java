@@ -7,9 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Repository;
 
-import com.way.free.BoardService;
 import com.way.free.dao.BoardDAO;
 import com.way.free.model.board;
+import com.way.free.service.BoardService;
 
 @Repository
 public class BoardServiceImpl implements BoardService{

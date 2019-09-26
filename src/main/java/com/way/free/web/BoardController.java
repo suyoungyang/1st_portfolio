@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.way.free.BoardService;
 import com.way.free.model.board;
 import com.way.free.model.user;
+import com.way.free.service.BoardService;
 
 @Controller
 @RequestMapping("/board/*")

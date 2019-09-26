@@ -1,4 +1,4 @@
-package com.way.free;
+package com.way.free.service;
 
 import java.util.List;
 
