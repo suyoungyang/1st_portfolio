@@ -1,4 +1,4 @@
-package com.way.free.service;
+package com.way.free;
 
 import java.text.DateFormat;
 import java.util.Date;
